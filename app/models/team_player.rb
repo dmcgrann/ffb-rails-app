@@ -1,0 +1,2 @@
+class TeamPlayer < ApplicationRecord
+end
