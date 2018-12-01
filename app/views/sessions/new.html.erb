@@ -1,0 +1,12 @@
+<%= form_tag login_path do %>
+
+  <div class="form-group">
+    <label>Your name: </label><br>
+    <%= text_field_tag :'user_username'%><br>
+
+    <label>Your password:</label><br>
+    <%= password_field_tag :'password' %><br>
+
+  <%= submit_tag "Log In" %>
+  </div>
+<% end %>
