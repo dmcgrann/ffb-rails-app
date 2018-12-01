@@ -10,7 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_30_234331) do
+ActiveRecord::Schema.define(version: 2018_12_01_000016) do
+
+  create_table "leagues", force: :cascade do |t|
+    t.string "name"
+    t.string "scoring_style"
+    t.string "draft_style"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "position"
+    t.string "nfl_team"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "team_players", force: :cascade do |t|
+    t.integer "team_id"
+    t.integer "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "team_name"
+    t.integer "user_id"
+    t.integer "league_id"
+    t.integer "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
