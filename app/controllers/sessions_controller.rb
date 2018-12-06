@@ -1,10 +1,10 @@
 class SessionsController < ApplicationController
 
-
   def create
     if auth = request.env["omniauth.auth"]
       user = User.from_omniauth(auth)
       session[:user_id] = user.id
+      flash[:success] = "Welcome, #{user.name}"
       redirect_to users_path
 
     else

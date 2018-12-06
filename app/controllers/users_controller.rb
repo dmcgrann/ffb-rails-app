@@ -19,13 +19,13 @@ class UsersController < ApplicationController
     end
 
     def show
-      @user = User.find_by(id: params[:id])
+      @user = User.find_by(id: session[:current_user_id])
       redirect_to root_path if !current_user
     end
 
     private
 
     def user_params
-      params.require(:user).permit(:name, :password, :money_paid)
+      params.require(:user).permit(:name, :password, :money_paid, :uid, :provider, :oauth_token)
     end
 end
