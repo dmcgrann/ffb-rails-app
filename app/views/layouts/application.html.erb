@@ -20,6 +20,16 @@
         <span class="navbar-toggler-icon"></span>
       </button> -->
 
+        <% if current_user %>
+          <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
+          <a class="navbar-brand" href="<%= logout_path %>"/>Log Out</a>
+        <% else %>
+          <a class="navbar-brand" href="<%= new_user_path %>"/>Signup</a>
+          <a class="navbar-brand" href="<%= login_path %>"/>Login</a>
+          <a class="navbar-brand" href="<%= '/auth/google_oauth2'%>"/>Google Login</a>
+        <%end%>
+    
+
     </nav>
 
     <% flash.each do |key, value| %>
