@@ -1,17 +1,16 @@
 class SessionsController < ApplicationController
 
   def create
-    if auth = request.env["omniauth.auth"]
-      user = User.from_omniauth(auth)
+    if auth_hash = request.env["omniauth.auth"]
+      user = User.from_omniauth(auth_hash)
       session[:user_id] = user.id
       flash[:success] = "Welcome, #{user.name}"
       redirect_to users_path
-
     else
       user = User.find_by(:name => params[:name])
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
-        redirect_to users_path
+        redirect_to user_path(user)
       else
         flash[:alert] = "Please signup."
         redirect_to signup_path
