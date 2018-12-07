@@ -14,13 +14,13 @@ class LeaguesController < ApplicationController
   end
 
   def show
-    @league = League.find(id: params[:id])
+    @league = League.find(params[:id])
   end
 
   private
 
   def league_params
     params.require(:league).permit(:name, :scoring_style, :draft_style)
-  end 
+  end
 
 end
