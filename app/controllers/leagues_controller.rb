@@ -10,7 +10,13 @@ class LeaguesController < ApplicationController
 
   def create
     @league = League.create(league_params)
-    redirect_to league_path(@league)
+    if @league.valid?
+      redirect_to league_path(@league)
+    else
+      render 'new'
+      # flash[:alert] = "Invalid entry"
+      # redirect_to new_league_path
+    end
   end
 
   def show
