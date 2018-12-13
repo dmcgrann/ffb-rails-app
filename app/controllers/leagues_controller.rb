@@ -21,6 +21,16 @@ class LeaguesController < ApplicationController
     @league = League.find(params[:id])
   end
 
+  def edit
+    @league = League.find(params[:id])
+  end
+
+  def update
+    @league = League.find(params[:id])
+    @league.update(league_params)
+    redirect_to league_path(@league)
+  end
+
   private
 
   def league_params
