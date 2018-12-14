@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :leagues
   resources :teams
   resources :session, only: [:create, :destroy]
+
 end

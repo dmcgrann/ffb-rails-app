@@ -9,12 +9,9 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = Team.create(team_params)
-    if @team.valid?
-      redirect_to team_path(@team)
-    else
-      render 'new'
-    end
+    @team = Team.new(team_params)
+    @team.save
+    redirect_to team_path(@team)
   end
 
   def show
@@ -34,7 +31,7 @@ class TeamsController < ApplicationController
   private
 
   def team_params
-    params.require(:team).permit(:name)
+    params.require(:team).permit(:team_name, :league_id, :player_id)
   end
 
 
