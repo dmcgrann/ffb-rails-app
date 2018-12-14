@@ -1,4 +1,7 @@
 <h3><%=@user.name%></h3>
-<% @user.teams do |team| %>
-  <%=team.name%>
+
+<ol>
+<% @user.teams.each do |team| %>
+  <li><%=team.name%></li>
 <%end%>
+</ol>

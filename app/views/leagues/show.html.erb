@@ -1,15 +1,16 @@
 <h3>League Homepage</h3>
+
 <ul>
 <h4><%= @league.name %></h4>
   <li><%= @league.scoring_style %></li>
   <li><%= @league.draft_style %></li>
-  <li><%= link_to "Edit League", edit_league_path(@league) %></li>
 </ul>
+<p><%= link_to "Edit League", edit_league_path(@league) %></p>
+
 
 <h4>Teams</h4>
-<ul>
-  <% @league.teams do |team| %>
-    <li><%= team.name %><li>
-  <%end%>
-  <li><%= link_to "Add a Team", new_team_path %></li>
-</ul>
+<% @league.teams.each do |team| %>
+    <p><%= team.name %></p>
+<%end%>
+
+<p><%= link_to "Add a Team", new_team_path %></p>
