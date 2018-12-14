@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2018_12_01_000016) do
   end
 
   create_table "teams", force: :cascade do |t|
-    t.string "team_name"
+    t.string "name"
     t.integer "user_id"
     t.integer "league_id"
     t.integer "player_id"
