@@ -1,0 +1,11 @@
+<%= form_for @team do |f| %>
+  <div class="form-group">
+  <p><label>Team Name</label><br>
+  <%= f.text_field :name %></p>
+
+  <p><label>Select a League</label><br>
+  <%= f.select :'league_name', options_for_select(League.all, :name, :name) %></p>
+
+  <%= f.submit "Submit" %>
+  </div>
+<%end%>
