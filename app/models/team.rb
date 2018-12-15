@@ -10,5 +10,12 @@ class Team < ApplicationRecord
   validates :name, :uniqueness => true
   validates :name, :length => {:maximum => 30, :message => "30 character max."}
 
+  def players_attributes=(player_attributes)
+    player_attributes.values.each do |player_attribute|
+      player = Player.find_or_create_by(player_attribute)
+      self.players << player
+    end
+  end
+
 
 end

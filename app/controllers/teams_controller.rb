@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  
+
   def index
     @teams = Team.all
   end
@@ -34,7 +34,7 @@ class TeamsController < ApplicationController
   private
 
   def team_params
-    params.require(:team).permit(:name, :league_id, :user_id, :player_id)
+    params.require(:team).permit(:name, :league_id, :user_id, player_ids:[], players_attributes: [:first_name, :last_name, :position, :nfl_team] )
   end
 
 
