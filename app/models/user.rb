@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :teams
   has_many :leagues, through: :teams
 
-  validates :name, :presence => true
+  validates :name, :presence => true, :allow_blank => false
   validates :name, :uniqueness => true
 
 
