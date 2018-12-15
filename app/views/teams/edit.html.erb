@@ -5,6 +5,9 @@
   <p><label>Team Name</label><br>
   <%= f.text_field :name %></p>
 
+  <label>Select Players to Add</label><br>
+  <p><%= f.collection_check_boxes :player_id, Player.all, :id, :last_name %></p>
+
   <%= f.hidden_field :user_id, value: current_user.id  %>
 
   <%= f.submit "Submit" %>
