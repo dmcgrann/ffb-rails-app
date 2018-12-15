@@ -5,12 +5,12 @@
   <li><%= @league.scoring_style %></li>
   <li><%= @league.draft_style %></li>
 </ul>
-<p><%= link_to "Edit League", edit_league_path(@league) %></p>
 
-
+<ul>
 <h4>Teams</h4>
 <% @league.teams.each do |team| %>
-    <p><%= team.name %></p>
+    <%= team.name %><br>
 <%end%>
+</ul>
 
-<p><%= link_to "Add a Team", new_team_path %></p>
+<p><%= link_to "Edit League", edit_league_path(@league) %></p>

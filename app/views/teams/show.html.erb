@@ -1,5 +1,8 @@
-<%= link_to @team.name, edit_team_path(@team) %>
-
+<h2><%= @team.name %></h2>
+<ul>
 <% @team.players.each do |player| %>
-  <%= player.last_name %>
+  <%= player.last_name %><br>
 <%end%>
+</ul>
+
+<p><%= link_to "Edit Team Info", edit_team_path(@team) %></p>

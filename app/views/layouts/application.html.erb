@@ -21,8 +21,8 @@
       </button> -->
 
         <% if current_user %>
-          <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
-          <a class="navbar-brand" href="<%= new_league_path %>"/>Create a League</a>
+          <a class="navbar-brand" href="<%= user_path(current_user) %>"/>Home</a>
+          <a class="navbar-brand" href="<%= leagues_path %>"/>Leagues</a>
           <a class="navbar-brand" href="<%= logout_path %>"/>Log Out</a>
         <% else %>
           <a class="navbar-brand" href="<%= new_user_path %>"/>Signup</a>
@@ -37,7 +37,7 @@
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
 
-  
+
 
     <%= yield %>
 

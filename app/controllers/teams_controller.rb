@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
-
+  include SessionsHelper
+  
   def index
     @teams = Team.all
   end
@@ -11,7 +12,7 @@ class TeamsController < ApplicationController
   def create
     @team = Team.create(team_params)
     if @team.valid?
-      redirect_to team_path(@team)
+      redirect_to user_path(current_user)
     else
       render 'new'
     end
