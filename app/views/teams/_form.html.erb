@@ -6,9 +6,7 @@
   <p><label>Select a League</label><br>
   <%= f.select :'league_id', options_from_collection_for_select(League.all, :id, :name) %></p>
 
-  <p><label>Select a User</label><br>
-  <%= f.select :'user_id', options_from_collection_for_select(User.all, :id, :name) %></p>
-
+  <%= f.hidden_field :user_id, value: current_user.id  %>
 
   <%= f.submit "Submit" %>
   </div>
