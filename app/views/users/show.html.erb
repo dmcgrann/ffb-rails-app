@@ -2,6 +2,6 @@
 
 <ol>
 <% @user.teams.each do |team| %>
-  <li><%=team.name%></li>
+  <li><%=link_to team.name, user_team_path(team)%></li>
 <%end%>
 </ol>

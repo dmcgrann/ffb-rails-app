@@ -1,3 +1,15 @@
 <h3>Create a New Team</h3>
 
-<%= render "form" %>
+<%= form_for @team do |f| %>
+  <div class="form-group">
+  <p><label>Team Name</label><br>
+  <%= f.text_field :name %></p>
+
+  <p><label>Select a League</label><br>
+  <%= f.select :'league_id', options_from_collection_for_select(League.all, :id, :name) %></p>
+
+  <%= f.hidden_field :user_id, value: current_user.id  %>
+
+  <%= f.submit "Submit" %>
+  </div>
+<%end%>

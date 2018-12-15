@@ -1,0 +1,12 @@
+<h3> Edit Your Team</h3>
+
+<%= form_for @team do |f| %>
+  <div class="form-group">
+  <p><label>Team Name</label><br>
+  <%= f.text_field :name %></p>
+
+  <%= f.hidden_field :user_id, value: current_user.id  %>
+
+  <%= f.submit "Submit" %>
+  </div>
+<%end%>
