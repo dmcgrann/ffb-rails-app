@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   end
   resources :teams
   resources :session, only: [:create, :destroy]
+  resources :players
 
 end

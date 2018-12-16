@@ -10,4 +10,12 @@ class Player < ApplicationRecord
     "#{player_name} #{position}, #{nfl_team}"
   end
 
+  def self.search(position)
+    if position
+      where('name LIKE ?', "%#{position}%")
+    else
+      all
+    end
+  end
+
 end
