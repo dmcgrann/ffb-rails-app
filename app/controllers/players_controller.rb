@@ -1,7 +1,7 @@
 class PlayersController < ApplicationController
 
   def index
-    @players = Player.search(params[:search])
+    @players = Player.all
   end
 
   private

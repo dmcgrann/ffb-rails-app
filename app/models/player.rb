@@ -6,16 +6,10 @@ class Player < ApplicationRecord
   validates :position, :presence => true, :allow_blank => false
   validates :nfl_team, :presence => true, :allow_blank => false
 
+  scope :list, -> { order(nfl_team: :asc) }
+
   def player_info
     "#{player_name} #{position}, #{nfl_team}"
-  end
-
-  def self.search(search)
-    if search
-      where('position LIKE ?', "#%{position}%").order('id DESC')
-    else
-      Player.all
-    end
   end
 
 end
