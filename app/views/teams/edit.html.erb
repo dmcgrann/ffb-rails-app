@@ -6,7 +6,7 @@
   <%= f.text_field :name %></p>
 
   <label>Select Players to Add</label><br>
-  <p><%= f.collection_select :player_ids, Player.all, :id, :player_info, {:prompt => "Please Select Your Players"}, {:multiple => true} %></p>
+  <p><%= f.collection_select :player_ids, Player.all.list, :id, :player_info, {:prompt => "Please Select Your Players"}, {:multiple => true} %></p>
 
   <%= f.hidden_field :user_id, value: current_user.id  %>
 
