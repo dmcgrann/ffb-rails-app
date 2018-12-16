@@ -1,4 +1,8 @@
 <%= form_tag(players_path, method: :get) do %>
-  <%= text_field_tag :position, params[:position] %>
+  <%= text_field_tag :search, params[:search] %>
   <%= submit_tag 'Search', name: nil %>
 <% end %>
+
+<% Player.all.each do |p| %>
+  <%=p.player_name%>
+<%end%>
