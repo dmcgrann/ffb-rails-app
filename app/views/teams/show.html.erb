@@ -1,6 +1,22 @@
 <h2><%= @team.name %></h2>
 <ul>
-<% @team.players.each do |player| %>
+<h4>QBs</h4>
+<% @team.players.qb.each do |player| %>
+  <%= player.player_name %><br>
+<%end%>
+
+<h4>RBs</h4>
+<% @team.players.rb.each do |player| %>
+  <%= player.player_name %><br>
+<%end%>
+
+<h4>WRs</h4>
+<% @team.players.wr.each do |player| %>
+  <%= player.player_name %><br>
+<%end%>
+
+<h4>TEs</h4>
+<% @team.players.te.each do |player| %>
   <%= player.player_name %><br>
 <%end%>
 </ul>

@@ -21,7 +21,7 @@
       </button> -->
 
         <% if current_user %>
-          <a class="navbar-brand" href="<%= user_path(current_user) %>"/> <%=@user.name.capitalize%>&#39s Teams</a>
+          <a class="navbar-brand" href="<%= user_path(current_user) %>"/> Your Teams</a>
           <a class="navbar-brand" href="<%= leagues_path %>"/>All Active Leagues</a>
           <a class="navbar-brand" href="<%= players_path %>"/>All Players</a>
           <a class="navbar-brand" href="<%= logout_path %>"/>Log Out</a>
