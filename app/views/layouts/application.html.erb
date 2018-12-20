@@ -13,56 +13,56 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#"><i>FFP App</i></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <% if current_user %>
-          <li class="nav-item">
-            <a class="navbar-brand" href="<%= user_path(current_user) %>"/> Your Teams</a>
-          </li>
-          <li class="nav-item">
-            <a class="navbar-brand" href="<%= leagues_path %>"/>All Active Leagues</a>
-          </li>
-          <li class="nav-item">
-            <a class="navbar-brand" href="<%= players_path %>"/>All Players</a>
-          </li>
-          <li class="nav-item">
-            <a class="navbar-brand" href="<%= logout_path %>"/>Log Out</a>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <a class="navbar-brand" href="<%= new_user_path %>"/>Signup</a>
-          </li>
-          <li class="nav-item">
-            <a class="navbar-brand" href="<%= login_path %>"/>Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="navbar-brand" href="<%= '/auth/google_oauth2'%>"/>Google Login</a>
-          </li>
-        <%end%>
-        </ul>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="<%=root_path%>"/><i>FFP App</i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      </div>
-    </nav>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <% if current_user %>
+            <li class="nav-item">
+              <a class="navbar-brand" href="<%= user_path(current_user) %>"/> Your Teams</a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand" href="<%= leagues_path %>"/>All Active Leagues</a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand" href="<%= players_path %>"/>All Players</a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand" href="<%= logout_path %>"/>Log Out</a>
+            </li>
+            <% else %>
+            <li class="nav-item">
+              <a class="navbar-brand" href="<%= new_user_path %>"/>Signup</a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand" href="<%= login_path %>"/>Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="navbar-brand" href="<%= '/auth/google_oauth2'%>"/>Google Login</a>
+            </li>
+            <%end%>
+          </ul>
+        </div>
+      </nav>
 
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
 
 
 
-    <%= yield %>
+      <%= yield %>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
   </body>
 </html>
