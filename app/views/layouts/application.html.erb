@@ -24,26 +24,26 @@
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <% if current_user %>
             <li class="nav-item">
-              <a class="navbar-brand" href="<%= user_path(current_user) %>"/> Your Teams</a>
+              <a class="navbar-brand" href="<%= user_path(current_user) %>"> Your Teams</a>
             </li>
             <li class="nav-item">
-              <a class="navbar-brand" href="<%= leagues_path %>"/>All Active Leagues</a>
+              <a class="navbar-brand" href="<%= leagues_path %>">All Active Leagues</a>
             </li>
             <li class="nav-item">
-              <a class="navbar-brand" href="<%= players_path %>"/>All Players</a>
+              <a class="navbar-brand" href="<%= players_path %>">All Players</a>
             </li>
             <li class="nav-item">
-              <a class="navbar-brand" href="<%= logout_path %>"/>Log Out</a>
+              <a class="navbar-brand" href="<%= logout_path %>">Log Out</a>
             </li>
             <% else %>
             <li class="nav-item">
-              <a class="navbar-brand" href="<%= new_user_path %>"/>Signup</a>
+              <a class="navbar-brand" href="<%= new_user_path %>">Signup</a>
             </li>
             <li class="nav-item">
-              <a class="navbar-brand" href="<%= login_path %>"/>Login</a>
+              <a class="navbar-brand" href="<%= login_path %>">Login</a>
             </li>
             <li class="nav-item">
-              <a class="navbar-brand" href="<%= '/auth/google_oauth2'%>"/>Google Login</a>
+              <a class="navbar-brand" href="<%= '/auth/google_oauth2'%>">Google Login</a>
             </li>
             <%end%>
           </ul>
