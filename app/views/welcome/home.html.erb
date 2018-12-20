@@ -1,4 +1,20 @@
 <div class="text-center">
   <h1>Welcome to the Fantasy Football App</h1>
+
   <%= image_tag ("/assets/logo.jpg"), class: "rounded"%>
+
+  <ul>
+    <% if current_user %>
+
+    <a class="navbar-brand" href="<%= user_path(current_user) %>"> View Your Teams</a>
+
+    <% else %>
+
+      <a class="navbar-brand" href="<%= login_path %>">Login</a><br>
+
+
+      <a class="navbar-brand" href="<%= '/auth/google_oauth2'%>">Login with Google</a>
+
+    <%end%>
+  </ul>
 </div>
