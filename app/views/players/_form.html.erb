@@ -1,0 +1,14 @@
+<%= form_for @player do |f| %>
+  <div class="form-group">
+  <p><label>Player Name</label><br>
+  <%= f.text_field :player_name %></p>
+
+  <p><label>Position</label><br>
+  <%= f.text_field :position %></p>
+
+  <p><label>NFL Team (use standard three letter abbreviation)</label><br>
+  <%= f.text_field :nfl_team %></p>
+
+  <%= f.submit "Submit" %>
+  </div>
+<%end%>
