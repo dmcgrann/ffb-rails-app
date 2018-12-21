@@ -2,11 +2,19 @@ class TeamsController < ApplicationController
   include SessionsHelper
 
   def index
-    @teams = Team.all
+    if params[:user_id]
+      @teams = Team.find(params[:user_id]).teams
+    else
+      @teams = Team.all
+    end
   end
 
   def new
-    @team = Team.new
+    if params[:user_id]  && !User.exists?(params[:user_id])
+      redirect_to root_path, alert: "User not found."
+    else
+      @team = Team.new(user_id: params[:user_id])
+    end
   end
 
   def create
@@ -23,18 +31,19 @@ class TeamsController < ApplicationController
   end
 
   def edit
-    @team = Team.find(params[:id])
+    if params[:user_id]
+      user = user.find_by(id: params[:user_id])
+      @team = user.teams.find_by(id: params[:id])
+      redirect_to user_teams_path(team)
+    else
+      @team = Team.find(params[:id])
+    end
   end
 
   def update
-    if current_user == @user_id
-      @team = Team.find(params[:id])
-      @team.update(team_params)
-      redirect_to team_path(@team)
-    else
-      flash[:alert] = "You cannot update other people's teams!"
-      redirect_to user_path
-    end
+    @team = Team.find(params[:id])
+    @team.update(team_params)
+    redirect_to team_path(@team)
   end
 
   def destroy

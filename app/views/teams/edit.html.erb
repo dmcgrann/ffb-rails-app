@@ -2,12 +2,13 @@
 
 <%= form_for @team do |f| %>
   <div class="form-group">
+  <%= user_id_field(@team) %>
+
   <p><label>Team Name</label><br>
   <%= f.text_field :name %></p>
 
   <label>Select Players to Add</label><br>
   <%= f.collection_check_boxes :player_ids, Player.all.list, :id, :player_info, {:multiple => true} %><br>
-  <%= f.hidden_field :user_id, value: current_user.id  %>
 
   <%= f.submit "Submit" %>
   </div>
