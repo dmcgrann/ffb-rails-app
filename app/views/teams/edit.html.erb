@@ -3,10 +3,9 @@
 <%= form_for @team do |f| %>
   <%= user_id_field(@team) %>
   <div class="form-group">
-  <%= user_id_field(@team) %>
 
   <p><label>Team Name</label><br>
-  <%= f.text_field :name %></p>
+  <%= f.text_field :team_name %></p>
 
   <label>Select Players to Add</label><br>
   <%= f.collection_check_boxes :player_ids, Player.all.list, :id, :player_info, {:multiple => true} %><br>

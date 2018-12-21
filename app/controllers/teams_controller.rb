@@ -35,7 +35,7 @@ class TeamsController < ApplicationController
     if params[:user_id]
       user = User.find_by(id: params[:user_id])
       @team = user.teams.find_by(id: params[:id])
-      redirect_to user_teams_path(user)
+      redirect_to user_teams_path(user), alert: "Team not found" if @team.nil?
     else
       redirect_to 'root_path'
     end
@@ -44,7 +44,7 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
     @team.update(team_params)
-    redirect_to team_path(@team)
+    redirect_to user_team_path(@team)
   end
 
   def destroy
