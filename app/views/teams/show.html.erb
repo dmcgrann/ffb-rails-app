@@ -23,4 +23,6 @@
 
 <p><%= link_to "Edit Team Info", edit_team_path(@team) %></p>
 
-<p><%= link_to "Delete", @team, method: :delete, data: { confirm: "Really?" } %></p>
+<%= form_tag team_path(@team.id), method: "delete" do %>
+  <%= submit_tag "Delete" %>
+<%end%>

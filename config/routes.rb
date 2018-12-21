@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   get 'auth/google_oauth2/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
 
+  delete 'teams/:id', to: 'teams#destroy'
+
   resources :users do
-    resources :teams, only: [:index, :show, :update]
+    resources :teams, only: [:index, :show, :update, :destroy]
   end
   resources :leagues do
     resources :teams
