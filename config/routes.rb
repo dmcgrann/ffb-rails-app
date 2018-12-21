@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
 
   delete 'teams/:id', to: 'teams#destroy'
+  delete 'leagues/:id', to: 'leagues#destroy'
+
 
   resources :users
   resources :leagues do

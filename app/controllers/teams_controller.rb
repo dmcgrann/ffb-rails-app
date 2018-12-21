@@ -32,7 +32,7 @@ class TeamsController < ApplicationController
       @team.update(team_params)
       redirect_to team_path(@team)
     else
-      flash[:alert] = "this isn't your team"
+      flash[:alert] = "You cannot update other people's teams!"
       redirect_to user_path
     end
   end

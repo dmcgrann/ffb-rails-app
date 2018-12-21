@@ -1,1 +1,9 @@
 <p>hello</p>
+
+<ol>
+<% User.all.each do |user| %>
+  <li><%= user.name %>
+    <%if user.admin%>
+    <%="- ADMIN"%></li>
+    <%end%>
+<%end%>
