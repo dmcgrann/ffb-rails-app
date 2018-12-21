@@ -3,9 +3,10 @@ class TeamsController < ApplicationController
 
   def index
     if params[:user_id]
-      @teams = Team.find(params[:user_id]).teams
+      @user= User.find(params[:user_id])
+      @teams = @user.teams
     else
-      @teams = Team.all
+      redirect_to root_path
     end
   end
 
@@ -32,11 +33,11 @@ class TeamsController < ApplicationController
 
   def edit
     if params[:user_id]
-      user = user.find_by(id: params[:user_id])
+      user = User.find_by(id: params[:user_id])
       @team = user.teams.find_by(id: params[:id])
-      redirect_to user_teams_path(team)
+      redirect_to user_teams_path(user)
     else
-      @team = Team.find(params[:id])
+      redirect_to 'root_path'
     end
   end
 
