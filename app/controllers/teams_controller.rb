@@ -27,9 +27,14 @@ class TeamsController < ApplicationController
   end
 
   def update
-    @team = Team.find(params[:id])
-    @team.update(team_params)
-    redirect_to team_path(@team)
+    if current_user == @user_id
+      @team = Team.find(params[:id])
+      @team.update(team_params)
+      redirect_to team_path(@team)
+    else
+      flash[:alert] = "this isn't your team"
+      redirect_to user_path
+    end
   end
 
   def destroy

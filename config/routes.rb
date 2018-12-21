@@ -12,9 +12,7 @@ Rails.application.routes.draw do
 
   delete 'teams/:id', to: 'teams#destroy'
 
-  resources :users do
-    resources :teams, only: [:index, :show, :update, :destroy]
-  end
+  resources :users
   resources :leagues do
     resources :teams
   end
