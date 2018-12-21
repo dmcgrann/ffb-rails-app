@@ -13,4 +13,6 @@
 <%end%>
 </ul>
 
-<p><%= link_to "Edit League", edit_league_path(@league) %></p>
+<% if current_user.admin %>
+  <p><%= link_to "Edit League", edit_league_path(@league) %></p>
+<%end%>
