@@ -6,7 +6,7 @@
   <%= f.text_field :name %></p>
 
   <label>Select Players to Add</label><br>
-  <%= f.collection_check_boxes :player_ids, Player.all.list, :id, :player_info, {:prompt => "Please Select Your Players"}, {:multiple => true} %><br>
+  <%= f.collection_check_boxes :player_ids, Player.all.list, :id, :player_info, {:multiple => true} %><br>
   <%= f.hidden_field :user_id, value: current_user.id  %>
 
   <%= f.submit "Submit" %>
