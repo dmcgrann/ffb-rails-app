@@ -1,7 +1,9 @@
-<h3><%=@player.player_name%></h3>
-<h4><%=@player.position%></h4>
-<h4><%=@player.nfl_tea%>m</h4>
+<div class='container'>
+
+<h3><%=@player.player_name%>, <%=@player.position%>, <%=@player.nfl_team%></h3>
 
 <% if current_user.admin %>
-  <p><%= link_to "Add a Player", edit_player_path %></p>
+  <p><%= link_to "Update Player Info", edit_player_path %></p>
 <%end%>
+
+</div>

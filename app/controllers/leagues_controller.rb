@@ -1,4 +1,5 @@
 class LeaguesController < ApplicationController
+  include SessionsHelper
 
   def index
     @leagues = League.all
@@ -16,9 +17,8 @@ class LeaguesController < ApplicationController
         else
           render 'new'
         end
-      else
-        redirect_to leagues_path
-      end
+    else
+      redirect_to leagues_path
     end
   end
 

@@ -7,3 +7,6 @@
 </ol>
 
 <p><%= link_to "Create a New Team", new_team_path %></p>
+<% if current_user.admin %>
+<p><%= link_to "Create a New League", new_league_path %></p>
+<%end%>
