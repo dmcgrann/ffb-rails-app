@@ -21,8 +21,10 @@
 <%end%>
 </ul>
 
-<p><%= link_to "Edit Team Info", edit_team_path(@team) %></p>
+<% if current_user == @team.user_id %>
+<p><%= link_to "Edit Team Info", edit_user_team_path(@team) %></p>
 
 <%= form_tag team_path(@team.id), method: "delete" do %>
   <%= submit_tag "Delete" %>
+<%end%>
 <%end%>

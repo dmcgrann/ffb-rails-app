@@ -42,6 +42,7 @@ class TeamsController < ApplicationController
       @team.destroy
       redirect_to user_path
     else
+      flash[:alert] = "You cannot delete other people's teams!"
       redirect_to root_path
     end
   end
