@@ -1,9 +1,13 @@
+<h3>Players</h3>
+
+<div class='container'>
+<% if current_user.admin %>
+  <p><%= link_to "Add a Player", new_player_path %></p>
+<%end%>
+
 <ul>
 <% @players.list.each do |p| %>
   <p><%= p.player_info %></p>
 <%end%>
 </ul>
-
-<% if current_user.admin %>
-<p><%= link_to "Add a Player", new_player_path %></p>
-<%end%>
+</div>
