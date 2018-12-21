@@ -32,6 +32,13 @@ class TeamsController < ApplicationController
     redirect_to team_path(@team)
   end
 
+  def destroy
+    Team.find(params[:id]).destroy
+    flash[:alert] = "Team deleted."
+    redirect_to root_path
+  end
+
+
   private
 
   def team_params

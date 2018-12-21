@@ -22,3 +22,5 @@
 </ul>
 
 <p><%= link_to "Edit Team Info", edit_team_path(@team) %></p>
+
+<p><%= link_to "Delete", @team, method: :delete, data: { confirm: "Really?" } %></p>
