@@ -18,7 +18,31 @@ class PlayersController < ApplicationController
         render 'new'
       end
     else
-      render 'index'
+      flash[:alert] = "Must be an admin to add a player."
+      redirect_to players_path
+    end
+  end
+
+  def show
+    @player = Player.find(params[:id])
+  end
+
+  def edit
+    @player = Player.find(params[:id])
+  end
+
+  def update
+    if current_user.admin && logged_in?
+      @player = Player.find(params[:id])
+      @player.update(team_params)
+      if @player.valid?
+        redirect_to player_path(@player)
+      else
+        render 'edit'
+      end
+    else
+      flash[:alert] = "Must be an admin to add a player."
+      redirect_to players_path
     end
   end
 

@@ -9,11 +9,16 @@ class LeaguesController < ApplicationController
   end
 
   def create
-    @league = League.create(league_params)
-    if @league.valid?
-      redirect_to league_path(@league)
-    else
-      render 'new'
+    if current_user.admin && logged_in?
+      @league = League.create(league_params)
+        if @league.valid?
+          redirect_to league_path(@league)
+        else
+          render 'new'
+        end
+      else
+        redirect_to leagues_path
+      end
     end
   end
 
@@ -26,9 +31,13 @@ class LeaguesController < ApplicationController
   end
 
   def update
-    @league = League.find(params[:id])
-    @league.update(league_params)
-    redirect_to league_path(@league)
+    if current_user.admin && logged_in?
+      @league = League.find(params[:id])
+      @league.update(league_params)
+      redirect_to league_path(@league)
+    else
+      redirect_to leagues_path
+    end
   end
 
   private
