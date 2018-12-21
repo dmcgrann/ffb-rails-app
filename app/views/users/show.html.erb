@@ -2,7 +2,7 @@
 <h4>Teams</h4>
 <ol>
 <% @user.teams.each do |team| %>
-  <li><%=link_to team.name, user_team_path(team)%></li>
+  <li><%=link_to team.team_name, user_team_path(team)%></li>
 <%end%>
 </ol>
 

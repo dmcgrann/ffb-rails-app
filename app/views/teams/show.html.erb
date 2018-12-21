@@ -1,4 +1,4 @@
-<h2><%= @team.name %></h2>
+<h2><%= @team_name.name %></h2>
 <ul>
 <h4>QBs</h4>
 <% @team.players.qb.each do |player| %>
@@ -21,10 +21,8 @@
 <%end%>
 </ul>
 
-<% if current_user == @team.user_id %>
 <p><%= link_to "Edit Team Info", edit_user_team_path(@team) %></p>
 
 <%= form_tag team_path(@team.id), method: "delete" do %>
   <%= submit_tag "Delete" %>
-<%end%>
 <%end%>

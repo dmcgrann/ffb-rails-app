@@ -1,12 +1,1 @@
-<%= form_for @team do |f| %>
-  <%= user_id_field(@team) %>
-  <div class="form-group">
-  <p><label>Team Name</label><br>
-  <%= f.text_field :name %></p>
 
-  <p><label>Select a League</label><br>
-  <%= f.select :'league_id', options_from_collection_for_select(League.all, :id, :name) %></p>
-
-  <%= f.submit "Submit" %>
-  </div>
-<%end%>
