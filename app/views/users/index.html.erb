@@ -3,12 +3,10 @@
 <% User.all.each do |user| %>
   <li><%= user.name %>
     <% if user.admin %>
-      <%= "- ADMIN" %>
+      <%= "- ADMIN" %><br>
     <%end%>
     <%if current_user.admin%>
-      <%= form_tag user_path(user), method: "delete" do %>
-        <%= submit_tag "Delete" %>
-      <%end%></li>
+      <%= link_to "Delete", user, method: :delete, data: { confirm: "Really?" } %>
     <%end%>
 <%end%>
 </ol>

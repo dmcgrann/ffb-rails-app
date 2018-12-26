@@ -18,11 +18,7 @@
 </ul>
 
 <% if current_user.admin %>
-  <p><%= link_to "Edit League", edit_league_path(@league) %></p>
+  <%= link_to "Edit League", edit_league_path(@league) %><br>
 
-<%= form_tag league_path(@league.id), method: "delete" do %>
-  <%= submit_tag "Delete" %>
-<%end%>
-
-
+<%= link_to "Delete", @league, method: :delete, data: { confirm: "Really?" } %>
 <%end%>

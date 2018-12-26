@@ -23,8 +23,6 @@
 </ul>
 
 <% if current_user.id == @team.user_id || current_user.admin %>
-<button><%= link_to "Edit Team Info", edit_user_team_path(@team.user_id, @team) %></button><br>
-<%= form_tag team_path(@team), method: "delete" do %>
-  <%= submit_tag "Delete" %>
-<%end%>
+<%= link_to "Edit Team Info", edit_user_team_path(@team.user_id, @team) %><br>
+<%= link_to "Delete", @team, method: :delete, data: { confirm: "Really?" } %>
 <%end%>
