@@ -1,6 +1,15 @@
 class TeamsController < ApplicationController
   include SessionsHelper
 
+  def index
+    if params[:user_id]
+      @user= User.find(params[:user_id])
+      @teams = @user.teams
+    else
+      redirect_to root_path
+    end
+  end
+
   def new
     if params[:user_id]  && !User.exists?(params[:user_id])
       redirect_to root_path, alert: "User not found."
@@ -25,12 +34,8 @@ class TeamsController < ApplicationController
   def edit
     if params[:user_id]
       user = User.find_by(id: params[:user_id])
-      if current_user.id == user.id || current_user.admin
-        @team = user.teams.find_by(id: params[:id])
-        redirect_to user_team_path(@team), alert: "Team not found" if @team.nil?
-      else
-        redirect_to leagues_path, alert: "This isn't your team."
-      end
+      @team = user.teams.find_by(id: params[:id])
+      redirect_to user_team_path(@team), alert: "Team not found" if @team.nil?
     else
       redirect_to root_path
     end
