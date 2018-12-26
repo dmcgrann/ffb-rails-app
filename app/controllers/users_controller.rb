@@ -27,10 +27,17 @@ class UsersController < ApplicationController
     def destroy
       if current_user.admin && logged_in?
         @user = User.find(params[:id])
-        @user.destroy
-        redirect_to users_path
+        if @user.id === current_user.id
+          flash[:alert] = "Admins can't delete themselves, contact FFB App."
+          redirect_to root_path
+        else
+          @user.destroy
+          flash[:alert] = "User deleted."
+          redirect_to users_path
+        end
       else
-        redirect_to root_path, alert: "You do not have permission to delete users!"
+        flash[:alert] = "You do not have permission to delete users!"
+        redirect_to root_path
       end
     end
 
