@@ -20,5 +20,5 @@
 <% if current_user.admin %>
   <%= link_to "Edit League", edit_league_path(@league) %><br>
 
-<%= link_to "Delete", @league, method: :delete, data: { confirm: "Really?" } %>
+  <%= link_to "Delete", @league, method: :delete, data: { confirm: "Really?" } %>
 <%end%>

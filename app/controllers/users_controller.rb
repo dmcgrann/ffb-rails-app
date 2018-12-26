@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   include SessionsHelper
 
     def index
+      @users = User.all
     end
 
     def new
@@ -28,8 +29,7 @@ class UsersController < ApplicationController
         @user.destroy
         redirect_to users_path
       else
-        flash[:alert] = "You do not have permission to delete users!"
-        redirect_to root_path
+        redirect_to root_path, alert: "You do not have permission to delete users!"
       end
     end
 

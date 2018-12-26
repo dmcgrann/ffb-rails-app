@@ -1,12 +1,9 @@
 <h3>FFB App Users</h3>
 <ol>
 <% User.all.each do |user| %>
-  <li><%= user.name %>
-    <% if user.admin %>
-      <%= "- ADMIN" %><br>
-    <%end%>
+  <li><%= user.name %> <%= "- ADMIN" if user.admin %><br>
     <%if current_user.admin%>
-      <%= link_to "Delete", user, method: :delete, data: { confirm: "Really?" } %>
+      <%= link_to "Delete", user, method: :delete, data: { confirm: "Really?" } %></li>
     <%end%>
 <%end%>
 </ol>

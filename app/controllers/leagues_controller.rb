@@ -41,11 +41,10 @@ class LeaguesController < ApplicationController
   end
 
   def destroy
-    if current_user.admin && logged_in?
-      @league = League.find(params[:id])
-      @league.destroy
-      flash[:alert] = "League deleted."
-      redirect_to leagues_path
+    @league = League.find(params[:id])
+    if current_user_admin? && logged_in?
+    @league.destroy
+      redirect_to root_path, alert: "deleted!"
     else
       flash[:alert] = "Action not permitted."
       redirect_to leagues_path
