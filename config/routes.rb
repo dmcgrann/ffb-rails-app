@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
 
   resources :users, only: [:index, :show, :new, :create, :destroy] do
-    resources :teams
+    resources :teams, only: [:show, :new, :create, :edit, :update, :destroy]
   end
   resources :leagues
   resources :teams

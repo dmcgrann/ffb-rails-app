@@ -1,15 +1,6 @@
 class TeamsController < ApplicationController
   include SessionsHelper
 
-  def index
-    if params[:user_id]
-      @user= User.find(params[:user_id])
-      @teams = @user.teams
-    else
-      redirect_to root_path
-    end
-  end
-
   def new
     if params[:user_id]  && !User.exists?(params[:user_id])
       redirect_to root_path, alert: "User not found."
