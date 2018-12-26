@@ -4,10 +4,10 @@
   <%= f.text_field :player_name %></p>
 
   <p><label>Position</label><br>
-  <%= f.text_field :position %></p>
+  <%= f.select :position, Player::POSITIONS %></p>
 
-  <p><label>NFL Team (use standard three letter abbreviation)</label><br>
-  <%= f.text_field :nfl_team %></p>
+  <p><label>NFL Team</label><br>
+  <%= f.select :nfl_team, Player::TEAMS %></p>
 
   <%= f.submit "Submit" %>
   </div>

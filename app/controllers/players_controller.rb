@@ -34,7 +34,7 @@ class PlayersController < ApplicationController
   def update
     if current_user.admin && logged_in?
       @player = Player.find(params[:id])
-      @player.update(team_params)
+      @player.update(player_params)
       if @player.valid?
         redirect_to player_path(@player)
       else

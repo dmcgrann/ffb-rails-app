@@ -12,6 +12,10 @@ class Player < ApplicationRecord
   scope :wr, -> { where(position: "WR")}
   scope :te, -> { where(position: "TE")}
 
+  TEAMS = ["ARZ", "ATL", "BAL", "BUF", "CAR", "CHI", "CIN", "CLE", "DAL", "DEN", "DET", "GB", "HOU", "IND", "JAX", "KC", "LAC", "LAR", "MIA", "MIN", "NE", "NYG", "NYJ", "OAK", "PHI", "PIT", "SF", "SEA", "TB", "TEN", "WAS"]
+
+  POSITIONS = ["QB", "RB", "WR", "TE"]
+
   def player_info
     "#{player_name}, #{position}, #{nfl_team}"
   end
