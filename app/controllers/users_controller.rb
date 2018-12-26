@@ -23,6 +23,16 @@ class UsersController < ApplicationController
       redirect_to root_path if !current_user
     end
 
+    def destroy
+      if @user = User.find(params[:id])
+        @user.destroy
+        redirect_to users_path
+      else
+        flash[:alert] = "You do not have permission to delete users!"
+        redirect_to root_path
+      end
+    end
+
     private
 
     def user_params
