@@ -21,3 +21,10 @@
   <%= player.player_name%>, <%=player.nfl_team %><br>
 <%end%>
 </ul>
+
+<% if current_user.id == @team.user_id %>
+<button><%= link_to "Edit Team Info", edit_user_team_path %></button><br>
+<%= form_tag team_path(@team), method: "delete" do %>
+  <%= submit_tag "Delete" %>
+<%end%>
+<%end%>
