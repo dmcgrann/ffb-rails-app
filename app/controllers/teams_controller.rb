@@ -48,7 +48,8 @@ class TeamsController < ApplicationController
   end
 
   def destroy
-    if @team = Team.find(params[:id])
+    if current_user && logged_in?
+      @team = Team.find(params[:id])
       @team.destroy
       redirect_to user_path
     else

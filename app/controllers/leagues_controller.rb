@@ -18,6 +18,7 @@ class LeaguesController < ApplicationController
           render 'new'
         end
     else
+      flash[:alert] = "No, no, no... only admins can create leagues."
       redirect_to leagues_path
     end
   end
@@ -41,12 +42,13 @@ class LeaguesController < ApplicationController
   end
 
   def destroy
-    @league = League.find(params[:id])
-    if current_user_admin? && logged_in?
-    @league.destroy
-      redirect_to root_path, alert: "deleted!"
+    if current_user.admin && logged_in?
+      @league = League.find(params[:id])
+      @league.destroy
+      flash[:alert] = "Deleted!"
+      redirect_to root_path
     else
-      flash[:alert] = "Action not permitted."
+      flash[:alert] = "No, no, no... only admins can create leagues."
       redirect_to leagues_path
     end
   end
