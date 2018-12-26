@@ -34,7 +34,7 @@ class TeamsController < ApplicationController
   def edit
     if params[:user_id]
       user = User.find_by(id: params[:user_id])
-      if current_user.id == user.id
+      if current_user.id == user.id || current_user.admin
         @team = user.teams.find_by(id: params[:id])
         redirect_to user_team_path(@team), alert: "Team not found" if @team.nil?
       else
