@@ -13,7 +13,7 @@ class Player < ApplicationRecord
   scope :te, -> { where(position: "TE")}
 
   def player_info
-    "#{player_name} #{position}, #{nfl_team}"
+    "#{player_name}, #{position}, #{nfl_team}"
   end
 
 end
