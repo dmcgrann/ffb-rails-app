@@ -20,11 +20,3 @@
   width: auto;
   padding: 10px 0 10px 0;
 }
-
-body {
-  background: url('ffb-grey-bg.jpg');
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
