@@ -15,10 +15,10 @@
 
 
 <div class='anchors'>
-  <a href="#QBs">QBs</a>
-  <a href="#RBs">RBs</a>
-  <a href="#WRs">WRs</a>
-  <a href="#TEs">TEs</a>
+  <span><a href="#QBs">QBs</a></span>
+  <span><a href="#RBs">RBs</a></span>
+  <span><a href="#WRs">WRs</a></span>
+  <span><a href="#TEs">TEs</a></span>
 </div>
 
 <section id="QBs">
@@ -26,7 +26,6 @@
 <% @players.qb.list.each do |p| %>
   <p><%= link_to p.player_info, player_path(p) %></p>
 <%end%>
-
 </section>
 
 <section id="RBs">
@@ -49,5 +48,5 @@
   <p><%= link_to p.player_info, player_path(p) %></p>
 <%end%>
 </section>
-
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 </div>
