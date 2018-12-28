@@ -1,32 +1,53 @@
+<div class='container'>
+
 <h3>Current Players</h3>
 
-<div class='container'>
-<h3>Players</h3>
 
-<ul>
-<% if current_user.admin %>
-  <p><%= link_to "Add a Player", new_player_path %></p>
-  <p>Select a player from the list below to edit his information</p>
-<%end%>
+  <% if current_user.admin %>
+  <div class='admin'>
+  <h4>Administrators</h4>
+    <ul>
+      <li><%= link_to "Add a Player", new_player_path %></li>
+      <li>Select a player from the list below to edit his information.</li>
+    </ul>
+  </div>
+  <%end%>
 
+
+<div class='anchors'>
+  <a href="#QBs">QBs</a>
+  <a href="#RBs">RBs</a>
+  <a href="#WRs">WRs</a>
+  <a href="#TEs">TEs</a>
+</div>
+
+<section id="QBs">
 <h4>QBs</h4>
 <% @players.qb.list.each do |p| %>
   <p><%= link_to p.player_info, player_path(p) %></p>
 <%end%>
 
+</section>
+
+<section id="RBs">
 <h4>RBs</h4>
 <% @players.rb.list.each do |p| %>
   <p><%= link_to p.player_info, player_path(p) %></p>
 <%end%>
+</section>
 
+<section id="WRs">
 <h4>WRs</h4>
 <% @players.wr.list.each do |p| %>
   <p><%= link_to p.player_info, player_path(p) %></p>
 <%end%>
+</section>
 
+<section id="TEs">
 <h4>TEs</h4>
 <% @players.te.list.each do |p| %>
   <p><%= link_to p.player_info, player_path(p) %></p>
 <%end%>
-</ul>
+</section>
+
 </div>
