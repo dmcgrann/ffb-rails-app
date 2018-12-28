@@ -22,9 +22,9 @@
 }
 
 body {
-  background: url('http://c1.peakpx.com/wallpaper/269/429/238/football-stadium-wallpaper.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  background: url('ffb-grey-bg.jpg');
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
