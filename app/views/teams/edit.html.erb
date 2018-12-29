@@ -9,13 +9,49 @@
       <%= f.text_field :team_name %></p>
 
       <p>Select Players to Add:</p>
-      <ul>
-        <%= f.collection_check_boxes(:player_ids, Player.all.list, :id, :player_info, {:multiple => true}) do |p| %>
-          <%= p.label(class:"label-checkbox") { p.check_box + p.text } %><br>
-        <%end%>
-      </ul>
+      <span><a href="#QBs">QBs</a></span>
+      <span><a href="#RBs">RBs</a></span>
+      <span><a href="#WRs">WRs</a></span>
+      <span><a href="#TEs">TEs</a></span>
+
+      <section id="QBs">
+        <h4>QBs</h4>
+        <ul>
+          <%= f.collection_check_boxes(:player_ids, Player.qb.list, :id, :player_info, {:multiple => true}) do |p| %>
+            <%= p.label(class:"label-checkbox") { p.check_box + p.text } %><br>
+          <%end%>
+        </ul>
+      </section>
+
+      <section id="RBs">
+        <h4>RBs</h4>
+        <ul>
+          <%= f.collection_check_boxes(:player_ids, Player.rb.list, :id, :player_info, {:multiple => true}) do |p| %>
+            <%= p.label(class:"label-checkbox") { p.check_box + p.text } %><br>
+          <%end%>
+        </ul>
+      </section>
+
+      <section id="WRs">
+        <h4>WRs</h4>
+        <ul>
+          <%= f.collection_check_boxes(:player_ids, Player.wr.list, :id, :player_info, {:multiple => true}) do |p| %>
+            <%= p.label(class:"label-checkbox") { p.check_box + p.text } %><br>
+          <%end%>
+        </ul>
+      </section>
+
+      <section id="TEs">
+        <h4>TEs</h4>
+        <ul>
+          <%= f.collection_check_boxes(:player_ids, Player.te.list, :id, :player_info, {:multiple => true}) do |p| %>
+            <%= p.label(class:"label-checkbox") { p.check_box + p.text } %><br>
+          <%end%>
+        </ul>
+      </section>
 
       <%= f.submit "Submit" %>
     </div>
   <%end%>
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 </div>
