@@ -17,13 +17,13 @@
       <%end%>
     <%end%>
   </ul>
-</div>
 
-<div class='admin'>
+  <div class='admin'>
+    <% if current_user.admin %>
+      <h4>Admin Tools</h4>
+      <%= link_to "Edit League", edit_league_path(@league) %><br>
 
-  <% if current_user.admin %>
-    <%= link_to "Edit League", edit_league_path(@league) %><br>
-
-    <%= link_to "Delete", @league, method: :delete, data: { confirm: "Really?" } %>
-  <%end%>
+      <%= link_to "Delete", @league, method: :delete, data: { confirm: "Really?" } %>
+    <%end%>
+  </div>
 </div>
