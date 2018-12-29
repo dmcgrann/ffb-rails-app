@@ -3,29 +3,30 @@
   <p>Owner: <%= @team.user.name %><br>
     League: <%=@team.league.name%></p>
 
-  <ul>
+  <div class='list'>
     <h4>QBs</h4>
     <% @team.players.qb.each do |player| %>
       <%= player.player_name%>, <%=player.nfl_team %><br>
-    <%end%>
+    <%end%><br>
 
     <h4>RBs</h4>
     <% @team.players.rb.each do |player| %>
       <%= player.player_name%>, <%=player.nfl_team %><br>
-    <%end%>
+    <%end%><br>
 
     <h4>WRs</h4>
     <% @team.players.wr.each do |player| %>
       <%= player.player_name%>, <%=player.nfl_team %><br>
-    <%end%>
+    <%end%><br>
 
     <h4>TEs</h4>
     <% @team.players.te.each do |player| %>
       <%= player.player_name%>, <%=player.nfl_team %><br>
-    <%end%>
-  </ul>
-  <% if current_user.id == @team.user_id || current_user.admin %>
-    <%= link_to "Edit Team Info", edit_user_team_path(@team.user_id, @team) %><br>
-    <%= link_to "Delete", @team, method: :delete, data: { confirm: "Really?" } %>
-  <% end %>
+    <%end%><br>
+    
+    <% if current_user.id == @team.user_id || current_user.admin %>
+      <p><%= link_to "Edit Team Info", edit_user_team_path(@team.user_id, @team) %><br>
+      <%= link_to "Delete", @team, method: :delete, data: { confirm: "Really?" } %></p>
+    <% end %>
+  </div>
 </div>
