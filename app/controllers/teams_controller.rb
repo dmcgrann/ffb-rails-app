@@ -37,7 +37,6 @@ class TeamsController < ApplicationController
     if params[:user_id]
       user = User.find_by(id: params[:user_id])
       @team = user.teams.find_by(id: params[:id])
-      redirect_to user_team_path(@team)
     else
       redirect_to root_path
     end
