@@ -24,7 +24,6 @@ class TeamsController < ApplicationController
     if @team.valid?
       redirect_to user_path(current_user)
     else
-      flash[:alert] = "Try a different team name."
       render 'new'
     end
   end

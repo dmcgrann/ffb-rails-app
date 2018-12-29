@@ -6,6 +6,7 @@ class Team < ApplicationRecord
 
   accepts_nested_attributes_for :players
 
+  validates :league, :presence => true, :allow_blank => false
   validates :team_name, :presence => true, :allow_blank => false
   validates :team_name, :uniqueness => true
   validates :team_name, :length => {:maximum => 30, :message => "30 character max."}
