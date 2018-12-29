@@ -21,6 +21,10 @@
   padding: 10px;
 }
 
+.container a {
+  color: #141416;
+}
+
 .field_with_errors {
   padding: 2px;
   color: red;
@@ -33,7 +37,7 @@
 }
 
 body {
-  background: url('/assets/ffb-background.jpg') no-repeat center center fixed;
+  background: url('/assets/ffb-background-color.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -43,10 +47,10 @@ body {
 .darken {
   background:
     linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
+      rgba(0, 0, 0, .67),
+      rgba(0, 0, 0, .9)
     ),
-    url('/assets/ffb-background.jpg') no-repeat center center fixed;
+    url('/assets/ffb-background-color.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;

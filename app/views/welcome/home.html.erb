@@ -4,9 +4,9 @@
 
 <div class="welcome-text">
   <% if current_user %>
-    <p><a class="navbar-brand" href="<%= user_path(current_user) %>"> View Your Teams</a></p>
+    <h3><a class="navbar-brand" href="<%= user_path(current_user) %>"> View Your Teams</a></h3>
   <% else %>
-    <p><a class="navbar-brand" href="<%= login_path %>">Login</a></p>
+    <h3><a class="navbar-brand" href="<%= login_path %>">Login</a></h3>
   <%end%>
 
 </div>
