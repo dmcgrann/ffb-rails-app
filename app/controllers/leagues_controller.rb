@@ -35,7 +35,11 @@ class LeaguesController < ApplicationController
     if current_user.admin && logged_in?
       @league = League.find(params[:id])
       @league.update(league_params)
-      redirect_to league_path(@league)
+      if @league.valid?
+        redirect_to league_path(@league)
+      else
+        render 'edit'
+      end
     else
       flash[:alert] = "No, no, no... only admins can edit leagues."
       redirect_to leagues_path

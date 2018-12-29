@@ -1,3 +1,14 @@
+<% if @player.errors.any? %>
+  <div class='field_with_errors'>
+    <p><%= pluralize(@player.errors.count, "error") %> prohibited this team from being saved:</p>
+    <ul>
+    <% @player.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @player do |f| %>
   <div class="form-group">
   <p><label>Player Name</label><br>
