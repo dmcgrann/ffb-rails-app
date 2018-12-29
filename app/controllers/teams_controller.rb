@@ -12,7 +12,8 @@ class TeamsController < ApplicationController
 
   def new
     if params[:user_id]  && !User.exists?(params[:user_id])
-      redirect_to root_path, alert: "User not found."
+      flash[:alert] = "User not found."
+      redirect_to root_path
     else
       @team = Team.new(user_id: params[:user_id])
     end
@@ -23,6 +24,7 @@ class TeamsController < ApplicationController
     if @team.valid?
       redirect_to user_path(current_user)
     else
+      flash[:alert] = "Try a different team name."
       render 'new'
     end
   end
@@ -35,7 +37,7 @@ class TeamsController < ApplicationController
     if params[:user_id]
       user = User.find_by(id: params[:user_id])
       @team = user.teams.find_by(id: params[:id])
-      redirect_to user_team_path(@team), alert: "Team not found" if @team.nil?
+      redirect_to user_team_path(@team)
     else
       redirect_to root_path
     end

@@ -18,12 +18,12 @@
     <%end%>
   </ul>
 
-  <div class='admin'>
     <% if current_user.admin %>
+    <div class='admin'>
       <h4>Admin Tools</h4>
       <%= link_to "Edit League", edit_league_path(@league) %><br>
 
       <%= link_to "Delete", @league, method: :delete, data: { confirm: "Really?" } %>
+    </div>
     <%end%>
-  </div>
 </div>

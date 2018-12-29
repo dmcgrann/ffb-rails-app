@@ -7,11 +7,12 @@
     <%end%>
   </ul>
 
-  <div class='admin'>
-    <% if current_user.admin %>
+
+  <% if current_user.admin %>
+    <div class='admin'>
       <h4>Admin Tools</h4>
       <p><%= link_to "Create a New League", new_league_path %></p>
-    <%end%>
-  </div>
+    </div>
+  <%end%>
 
 </div>
