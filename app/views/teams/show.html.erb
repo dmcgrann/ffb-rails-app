@@ -1,10 +1,10 @@
 <div class='container'>
-  <div class='darken'>
 
-  <h2><font color="white"><%= @team.team_name %></font></h2>
+  <h2><%= @team.team_name %></h2>
   <p>Owner: <%= @team.user.name %><br>
     League: <%=@team.league.name%></p>
-    <br></br>
+
+  <div class='darken'>
     <h4>QBs</h4>
     <% @team.players.qb.each do |player| %>
       <p><%= player.player_name%>, <%=player.nfl_team %></p>

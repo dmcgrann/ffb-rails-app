@@ -14,6 +14,7 @@
  *= require_self
  */
 
+
 .admin  {
   border: 3px solid blue;
   width: fit-content;
@@ -53,11 +54,10 @@ body {
     width: fit-content;
 }
 
-.darken a {
+.darken h2 {
   color: white;
   margin: 0;
-  text-decoration: underline;
-  padding: 0 10px 0 10px;
+  padding: 10px;
 }
 
 .darken h4 {
@@ -66,8 +66,15 @@ body {
   padding: 10px;
 }
 
+.darken a {
+  color: #eaeaea;
+  margin: 0;
+  text-decoration: underline;
+  padding: 0 10px 0 10px;
+}
+
 .darken p {
-  color: white;
+  color: #eaeaea;
   margin: 0;
   padding: 0 10px 0 10px;
 }
