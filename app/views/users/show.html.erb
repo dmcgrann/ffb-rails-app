@@ -8,4 +8,12 @@
   </ol>
 
   <p><%= link_to "Create a New Team", new_user_team_path(@user) %></p>
+
+  <% if current_user.admin %>
+  <div class='admin'>
+    <h4>Admin Tools</h4>
+    <p><%= link_to "Manage Leagues", leagues_path %></p>
+  <%end%>
+  </div>
+
 </div>
