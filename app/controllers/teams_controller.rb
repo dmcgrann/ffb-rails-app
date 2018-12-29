@@ -38,6 +38,7 @@ class TeamsController < ApplicationController
       user = User.find_by(id: params[:user_id])
       @team = user.teams.find_by(id: params[:id])
     else
+      flash[:alert] = "You cannot this team!"
       redirect_to root_path
     end
   end
@@ -45,7 +46,11 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
     @team.update(team_params)
-    redirect_to user_team_path(@team)
+    if @team.valid?
+      redirect_to user_team_path(@team)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
