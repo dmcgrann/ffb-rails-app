@@ -1,11 +1,15 @@
-<h3>Active Leagues</h3>
+<div class='container'>
+  <h3>Active Leagues</h3>
 
-<ul>
-<% @leagues.each do |league| %>
-  <li><%= link_to league.name, league_path(league) %></li>
-<%end%>
-</ul>
+  <ul>
+    <% @leagues.each do |league| %>
+      <li><%= link_to league.name, league_path(league) %></li>
+    <%end%>
+  </ul>
+</div>
 
-<% if current_user.admin %>
-<p><%= link_to "Create a New League", new_league_path %></p>
-<%end%>
+<div class='admin'>
+  <% if current_user.admin %>
+    <p><%= link_to "Create a New League", new_league_path %></p>
+  <%end%>
+</div>

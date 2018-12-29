@@ -1,24 +1,29 @@
-<h3>League Homepage</h3>
+<div class='container'>
+  <h3>League Homepage</h3>
 
-<ul>
-<h4><%= @league.name %></h4>
-  <li><%= @league.scoring_style %></li>
-  <li><%= @league.draft_style %></li>
-</ul>
+  <ul>
+    <h4><%= @league.name %></h4>
+    <li><%= @league.scoring_style %></li>
+    <li><%= @league.draft_style %></li>
+  </ul>
 
-<ul>
-<h4>Teams</h4>
-<% @league.teams.each do |team| %>
-    <% if current_user.id == team.user_id %>
-      <%= link_to team.team_name, user_team_path(team.user_id, team) %><br>
-    <%else%>
-      <%= link_to team.team_name, team_path(team) %><br>
+  <ul>
+    <h4>Teams</h4>
+    <% @league.teams.each do |team| %>
+      <% if current_user.id == team.user_id %>
+        <%= link_to team.team_name, user_team_path(team.user_id, team) %><br>
+      <%else%>
+        <%= link_to team.team_name, team_path(team) %><br>
+      <%end%>
     <%end%>
-<%end%>
-</ul>
+  </ul>
+</div>
 
-<% if current_user.admin %>
-  <%= link_to "Edit League", edit_league_path(@league) %><br>
+<div class='admin'>
 
-  <%= link_to "Delete", @league, method: :delete, data: { confirm: "Really?" } %>
-<%end%>
+  <% if current_user.admin %>
+    <%= link_to "Edit League", edit_league_path(@league) %><br>
+
+    <%= link_to "Delete", @league, method: :delete, data: { confirm: "Really?" } %>
+  <%end%>
+</div>
