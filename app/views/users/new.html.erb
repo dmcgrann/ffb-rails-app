@@ -1,14 +1,16 @@
-<%= form_for @user do |f| %>
-  <div class="form-group">
-  <p><label>Name</label><br>
-  <%= f.text_field :name %></p>
+<div class='container'>
+  <%= form_for @user do |f| %>
+    <div class="form-group">
+      <p><label>Name</label><br>
+      <%= f.text_field :name %></p>
 
-  <p><label>Password</label><br>
-  <%= f.password_field :password %></p>
+      <p><label>Password</label><br>
+      <%= f.password_field :password %></p>
 
-  <p><label>Check this box if you are a site admin</label>
-  <%= f.check_box :admin %></p>
+      <p><label>Check this box if you are a site admin</label>
+      <%= f.check_box :admin %></p>
 
-  <%= f.submit "Submit" %>
-  </div>
-<% end %>
+      <%= f.submit "Submit" %>
+    </div>
+  <% end %>
+</div>

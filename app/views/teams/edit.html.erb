@@ -1,19 +1,21 @@
-<h3>Edit Your Team</h3>
+<div class='container'>
+  <h3>Edit Your Team</h3>
 
-<%= form_for @team do |f| %>
-  <%= user_id_field(@team) %>
-  <div class="form-group">
+  <%= form_for @team do |f| %>
+    <%= user_id_field(@team) %>
+    <div class="form-group">
 
-  <p>Team Name:<br>
-  <%= f.text_field :team_name %></p>
+      <p>Team Name:<br>
+      <%= f.text_field :team_name %></p>
 
-  <p>Select Players to Add:</p>
-  <ul>
-  <%= f.collection_check_boxes(:player_ids, Player.all.list, :id, :player_info, {:multiple => true}) do |p| %>
-    <%= p.label(class:"label-checkbox") { p.check_box + p.text } %><br>
+      <p>Select Players to Add:</p>
+      <ul>
+        <%= f.collection_check_boxes(:player_ids, Player.all.list, :id, :player_info, {:multiple => true}) do |p| %>
+          <%= p.label(class:"label-checkbox") { p.check_box + p.text } %><br>
+        <%end%>
+      </ul>
+
+      <%= f.submit "Submit" %>
+    </div>
   <%end%>
-  </ul>
-
-  <%= f.submit "Submit" %>
-  </div>
-<%end%>
+</div>

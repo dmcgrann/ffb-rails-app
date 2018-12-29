@@ -1,30 +1,34 @@
-<h2><%= @team.team_name %></h2>
-<p>Owner: <%= @team.user.name %><br>
-League: <%=@team.league.name%></p>
+<div class='container'>
+  <h2><%= @team.team_name %></h2>
+  <p>Owner: <%= @team.user.name %><br>
+    League: <%=@team.league.name%></p>
 
-<ul>
-<h4>QBs</h4>
-<% @team.players.qb.each do |player| %>
-  <%= player.player_name%>, <%=player.nfl_team %><br>
-<%end%>
+  <ul>
+    <h4>QBs</h4>
+    <% @team.players.qb.each do |player| %>
+      <%= player.player_name%>, <%=player.nfl_team %><br>
+    <%end%>
 
-<h4>RBs</h4>
-<% @team.players.rb.each do |player| %>
-  <%= player.player_name%>, <%=player.nfl_team %><br>
-<%end%>
+    <h4>RBs</h4>
+    <% @team.players.rb.each do |player| %>
+      <%= player.player_name%>, <%=player.nfl_team %><br>
+    <%end%>
 
-<h4>WRs</h4>
-<% @team.players.wr.each do |player| %>
-  <%= player.player_name%>, <%=player.nfl_team %><br>
-<%end%>
+    <h4>WRs</h4>
+    <% @team.players.wr.each do |player| %>
+      <%= player.player_name%>, <%=player.nfl_team %><br>
+    <%end%>
 
-<h4>TEs</h4>
-<% @team.players.te.each do |player| %>
-  <%= player.player_name%>, <%=player.nfl_team %><br>
-<%end%>
-</ul>
+    <h4>TEs</h4>
+    <% @team.players.te.each do |player| %>
+      <%= player.player_name%>, <%=player.nfl_team %><br>
+    <%end%>
+  </ul>
+</div>
 
-<% if current_user.id == @team.user_id || current_user.admin %>
-<%= link_to "Edit Team Info", edit_user_team_path(@team.user_id, @team) %><br>
-<%= link_to "Delete", @team, method: :delete, data: { confirm: "Really?" } %>
-<% end %>
+<div class='admin'>
+  <% if current_user.id == @team.user_id || current_user.admin %>
+    <%= link_to "Edit Team Info", edit_user_team_path(@team.user_id, @team) %><br>
+    <%= link_to "Delete", @team, method: :delete, data: { confirm: "Really?" } %>
+  <% end %>
+</div>
