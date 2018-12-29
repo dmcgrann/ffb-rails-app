@@ -1,13 +1,12 @@
 <div class='container'>
   <h3>League Homepage</h3>
 
-  <ul>
+  <div class='list'>
     <h4><%= @league.name %></h4>
-    <li><%= @league.scoring_style %></li>
-    <li><%= @league.draft_style %></li>
-  </ul>
+    <p>Scoring: <%= @league.scoring_style %><br>
+    Draft: <%= @league.draft_style %></p>
 
-  <ul>
+  <div class='list'>
     <h4>Teams</h4>
     <% @league.teams.each do |team| %>
       <% if current_user.id == team.user_id %>
@@ -16,8 +15,7 @@
         <%= link_to team.team_name, team_path(team) %><br>
       <%end%>
     <%end%>
-  </ul>
-
+    <br></br>
     <% if current_user.admin %>
     <div class='admin'>
       <h4>Admin Tools</h4>
@@ -26,4 +24,5 @@
       <%= link_to "Delete", @league, method: :delete, data: { confirm: "Really?" } %>
     </div>
     <%end%>
+  </div>
 </div>
