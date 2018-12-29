@@ -1,7 +1,6 @@
 <div class='container'>
 
-<h3>Current Players</h3>
-
+  <h3>Current Players</h3>
 
   <% if current_user.admin %>
   <div class='admin'>
@@ -14,39 +13,41 @@
   <%end%>
 
 
-<div class='anchors'>
-  <span><a href="#QBs">QBs</a></span>
-  <span><a href="#RBs">RBs</a></span>
-  <span><a href="#WRs">WRs</a></span>
-  <span><a href="#TEs">TEs</a></span>
-</div>
+  <div class='anchors'>
+    <span><a href="#QBs">QBs</a></span>
+    <span><a href="#RBs">RBs</a></span>
+    <span><a href="#WRs">WRs</a></span>
+    <span><a href="#TEs">TEs</a></span>
+  </div>
 
-<section id="QBs">
-<h4>QBs</h4>
-<% @players.qb.list.each do |p| %>
-  <p><%= link_to p.player_info, player_path(p) %></p>
-<%end%>
-</section>
+  <section id="QBs">
+    <h4>QBs</h4>
+    <% @players.qb.list.each do |p| %>
+      <p><%= link_to p.player_info, player_path(p) %></p>
+    <%end%>
+  </section>
 
-<section id="RBs">
-<h4>RBs</h4>
-<% @players.rb.list.each do |p| %>
-  <p><%= link_to p.player_info, player_path(p) %></p>
-<%end%>
-</section>
+  <section id="RBs">
+    <h4>RBs</h4>
+    <% @players.rb.list.each do |p| %>
+      <p><%= link_to p.player_info, player_path(p) %></p>
+    <%end%>
+  </section>
 
-<section id="WRs">
-<h4>WRs</h4>
-<% @players.wr.list.each do |p| %>
-  <p><%= link_to p.player_info, player_path(p) %></p>
-<%end%>
-</section>
+  <section id="WRs">
+    <h4>WRs</h4>
+    <% @players.wr.list.each do |p| %>
+      <p><%= link_to p.player_info, player_path(p) %></p>
+    <%end%>
+  </section>
 
-<section id="TEs">
-<h4>TEs</h4>
-<% @players.te.list.each do |p| %>
-  <p><%= link_to p.player_info, player_path(p) %></p>
-<%end%>
-</section>
-<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+  <section id="TEs">
+    <h4>TEs</h4>
+    <% @players.te.list.each do |p| %>
+      <p><%= link_to p.player_info, player_path(p) %></p>
+    <%end%>
+  </section>
+
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
 </div>
