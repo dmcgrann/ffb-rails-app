@@ -4,8 +4,7 @@ class SessionsController < ApplicationController
     if auth_hash = request.env["omniauth.auth"]
       user = User.from_omniauth(auth_hash)
       session[:user_id] = user.id
-      flash[:success] = "Welcome, #{user.name}"
-      redirect_to users_path
+      redirect_to user_path(user)
     else
       user = User.find_by(:name => params[:name])
       if user && user.authenticate(params[:password])
