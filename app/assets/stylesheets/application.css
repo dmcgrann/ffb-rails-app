@@ -21,6 +21,20 @@
   padding: 10px;
 }
 
+.anchors {
+  font-size: 1.75rem;
+  padding: 10px 0 10px 0;
+  display: inline-block;
+}
+
+.anchors a {
+  padding-right: .25em;
+}
+
+.anchors a:hover {
+  color: #fc5f05;
+}
+
 .container a {
   color: #141416;
 }
@@ -77,8 +91,32 @@ body {
   padding: 0 10px 0 10px;
 }
 
+.darken a:hover {
+  color: #fc5f05;
+}
+
 .darken p {
   color: #eaeaea;
   margin: 0;
   padding: 0 10px 0 10px;
+}
+
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: #fc5f05; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
 }
