@@ -1,12 +1,11 @@
 <div class='container'>
   <h3>League Homepage</h3>
 
-  <div class='list'>
+  <div class='darken'>
     <h4><%= @league.name %></h4>
     <p>Scoring: <%= @league.scoring_style %><br>
     Draft: <%= @league.draft_style %></p>
-
-  <div class='list'>
+    <br></br>
     <h4>Teams</h4>
     <% @league.teams.each do |team| %>
       <% if current_user.id == team.user_id %>

@@ -31,16 +31,43 @@
   padding: 20px;
 }
 
-.list {
-  padding: 0 2px 0 2px;
-  background-color: #f4f4f4;
-  width: fit-content
-}
-
 body {
   background: url('/assets/ffb-background.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
+}
+
+.darken {
+  background:
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url('/assets/ffb-background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    width: fit-content;
+}
+
+.darken a {
+  color: white;
+  margin: 0;
+  text-decoration: underline;
+  padding: 0 10px 0 10px;
+}
+
+.darken h4 {
+  color: white;
+  margin: 0;
+  padding: 10px;
+}
+
+.darken p {
+  color: white;
+  margin: 0;
+  padding: 0 10px 0 10px;
 }
