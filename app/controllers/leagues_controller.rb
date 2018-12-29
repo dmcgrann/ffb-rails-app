@@ -37,6 +37,7 @@ class LeaguesController < ApplicationController
       @league.update(league_params)
       redirect_to league_path(@league)
     else
+      flash[:alert] = "No, no, no... only admins can edit leagues."
       redirect_to leagues_path
     end
   end

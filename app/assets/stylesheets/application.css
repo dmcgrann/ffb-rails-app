@@ -20,6 +20,13 @@
   padding: 10px;
 }
 
+.field_with_errors {
+  padding: 2px;
+  color: red;
+  font-weight: bold;
+  display: table;
+}
+
 .form-group {
   padding: 20px;
 }
