@@ -6,7 +6,6 @@ class User < ApplicationRecord
   validates :name, :presence => true, :allow_blank => false
   validates :name, :uniqueness => true
 
-
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.name = auth.info.name

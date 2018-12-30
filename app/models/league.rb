@@ -8,5 +8,4 @@ class League < ApplicationRecord
   validates :draft_style, :presence => true, :allow_blank => false
   validates :scoring_style, :presence => true, :allow_blank => false
 
-
 end
