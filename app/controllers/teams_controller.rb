@@ -56,6 +56,7 @@ class TeamsController < ApplicationController
     if current_user && logged_in?
       @team = Team.find(params[:id])
       @team.destroy
+      flash[:alert] = "Team deleted."
       redirect_to user_path
     else
       flash[:alert] = "You cannot delete other people's teams!"
