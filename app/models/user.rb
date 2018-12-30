@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :teams
+  has_many :teams, :dependent => :destroy
   has_many :leagues, through: :teams
 
   validates :name, :presence => true, :allow_blank => false
