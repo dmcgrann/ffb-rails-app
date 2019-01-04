@@ -20,8 +20,10 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = Team.create(team_params)
-    if @team.valid?
+    @team = Team.new(team_params)
+    if @team.valid? && (current_user.id == @team.user_id || current_user.admin)
+      @team.save
+      flash[:success] = "New team created."
       redirect_to user_path(current_user)
     else
       render 'new'
