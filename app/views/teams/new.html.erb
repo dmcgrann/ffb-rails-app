@@ -17,11 +17,10 @@
     <div class="form-group">
 
       <%if current_user.admin%>
-        <p><label>Select a User</label><br>
-        <%= f.select :'user_id', options_from_collection_for_select(User.all, :id, :name) %>
-      <%else%>
-        <%= user_id_field(@team) %>
+        <label>Select a User</label><br>
       <%end%>
+
+        <p><%= user_id_field(@team) %></p>
 
       <p><label>Team Name</label><br>
       <%= f.text_field :team_name %></p>
