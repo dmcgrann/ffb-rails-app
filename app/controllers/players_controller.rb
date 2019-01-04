@@ -2,7 +2,11 @@ class PlayersController < ApplicationController
   include SessionsHelper
 
   def index
-    @players = Player.all
+    if params[:nfl_team]
+      @players = Player.where(nfl_team: params[:nfl_team])
+    else
+      @players = Player.all
+    end
   end
 
   def new

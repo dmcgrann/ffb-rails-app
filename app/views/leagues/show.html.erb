@@ -8,11 +8,9 @@
     <br></br>
     <h4>Teams</h4>
     <% @league.teams.each do |team| %>
-      <% if current_user.id == team.user_id %>
+    
         <%= link_to team.team_name, user_team_path(team.user_id, team) %><br>
-      <%else%>
-        <%= link_to team.team_name, team_path(team) %><br>
-      <%end%>
+
     <%end%>
     <br></br>
     <% if current_user.admin %>

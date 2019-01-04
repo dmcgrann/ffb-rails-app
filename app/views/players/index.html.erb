@@ -1,6 +1,6 @@
 <div class='container'>
 
-  <h3>Current Players</h3>
+  <h3><%= link_to "Current Players", players_path%></h3>
 
   <% if current_user.admin %>
   <div class='admin'>
@@ -12,6 +12,10 @@
   </div>
   <%end%>
 
+  <%=form_tag(@players_path, method: 'get') do %>
+    <%= text_field_tag :nfl_team %>
+    <%=submit_tag 'Search by Team'%>
+  <%end%>
 
   <div class='anchors'>
     <a href="#QBs">QBs</a>
