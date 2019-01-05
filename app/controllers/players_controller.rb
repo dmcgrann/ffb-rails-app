@@ -3,7 +3,8 @@ class PlayersController < ApplicationController
 
   def index
     if params[:nfl_team]
-      @players = Player.where(nfl_team: params[:nfl_team])
+      params[:nfl_team].capitalize
+      @players = Player.team_search(params[:nfl_team])
     else
       @players = Player.all
     end
