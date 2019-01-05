@@ -12,7 +12,7 @@ class Player < ApplicationRecord
   scope :rb, -> { where(position: "RB")}
   scope :wr, -> { where(position: "WR")}
   scope :te, -> { where(position: "TE")}
-  scope :team_search, -> (team) {where("nfl_team = ?", team)}
+  scope :team_search, -> (team) {where("nfl_team = ?", team.upcase)}
 
   TEAMS = ["ARZ", "ATL", "BAL", "BUF", "CAR", "CHI", "CIN", "CLE", "DAL", "DEN", "DET", "GB", "HOU", "IND", "JAX", "KC", "LAC", "LAR", "MIA", "MIN", "NE", "NYG", "NYJ", "OAK", "PHI", "PIT", "SF", "SEA", "TB", "TEN", "WAS"]
 
