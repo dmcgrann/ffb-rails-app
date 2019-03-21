@@ -1,3 +1,5 @@
+<script src="https://gist.github.com/PurpleBooth/109311bb0361f32d87a2.js"></script>
+
 Welcome to the FFB App. This application will allow users to manage all of their fantasy football teams and leagues in one place, regardless of format.
 
 Setup requires:
