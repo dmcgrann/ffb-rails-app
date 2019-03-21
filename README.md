@@ -2,7 +2,7 @@
 
 Welcome to the Fantasy Football App. This application will allow users to manage all of their fantasy football teams and leagues in one place, regardless of format.
 
-![Demo image](/assets/demo.png)
+![Demo image](demo.png)
 
 ## Getting started
 
