@@ -1,6 +1,6 @@
-# Fantasy Football App
+# Fantasy Football Manager
 
-Welcome to the Fantasy Football App. This application will allow users to manage all of their fantasy football teams and leagues in one place, regardless of format.
+Welcome to the Fantasy Football Manager. This application will allow users to manage all of their fantasy football teams and leagues in one place, regardless of format.
 
 ![Demo image](demo.png)
 
@@ -19,7 +19,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 To get started, run the following commands:
   ```
-  git clone https://github.com/dmcgrann/ffb-rails-app.git
+  git clone https://github.com/dmcgrann/fantasy-football-manager.git
   bundle install
   rake db:migrate
   rake db:seed
@@ -32,7 +32,7 @@ The site will be available at http://localhost:3000.
 
 ## Contributing
 
-Contributing Bug reports and pull requests are welcome on GitHub at https://github.com/dmcgrann/ffb-rails-app.
+Contributing Bug reports and pull requests are welcome on GitHub at https://github.com/dmcgrann/fantasy-football-manager.
 
 ## License
 
