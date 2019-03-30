@@ -3,10 +3,6 @@ class LeaguesController < ApplicationController
 
   def index
     @leagues = League.all
-    respond_to do |format|
-      format.html
-      format.json {render json: @leagues}
-    end
   end
 
   def new
@@ -31,7 +27,7 @@ class LeaguesController < ApplicationController
     @league = League.find(params[:id])
     respond_to do |format|
       format.html
-      format.json {render json: @leagues}
+      format.json {render json: @league }
     end
   end
 

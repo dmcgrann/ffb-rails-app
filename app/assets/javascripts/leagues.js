@@ -8,8 +8,9 @@ function getLeagues() {
     e.preventDefault();
     let id = $(this).data("id");
     $.get("/leagues/" + id + ".json", function(data){
-      alert("OH")
-      console.log(data)
+      let league = data;
+      let leagueDetails = "<ul>" + "<li>" + league["draft"] + "</li>" + "<li>" + league["scoring"] + "</li>" + "</ul>";
+      console.log(leagueDetails)
     })
   })
 }
