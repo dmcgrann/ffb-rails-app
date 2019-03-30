@@ -1,3 +1,3 @@
 class LeagueSerializer < ActiveModel::Serializer
-  attributes :id, :name, :scoring_style, :draft_style
+  attributes :id, :name, :scoring, :draft
 end

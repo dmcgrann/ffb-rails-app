@@ -3,12 +3,12 @@
 
   <div class='darken'>
     <h4><%= @league.name %></h4>
-    <p>Scoring: <%= @league.scoring_style %><br>
-    Draft: <%= @league.draft_style %></p>
+    <p>Scoring: <%= @league.scoring %><br>
+    Draft: <%= @league.draft %></p>
     <br></br>
     <h4>Teams</h4>
     <% @league.teams.each do |team| %>
-    
+
         <%= link_to team.team_name, user_team_path(team.user_id, team) %><br>
 
     <%end%>
