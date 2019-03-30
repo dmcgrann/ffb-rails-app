@@ -9,8 +9,14 @@ function getLeagues() {
     let id = $(this).data("id");
     $.get("/leagues/" + id + ".json", function(data){
       let league = data;
-      let leagueDetails = "<ul>" + "<li>" + "<em>Draft Type:</em>" + " " + league["draft"] + "</li>" + "<li>" + "<em>Scoring Style:</em>" + " " + league["scoring"] + "</li>" + "</ul>";
-      $("#league-" + id).html(leagueDetails)
+      let leagueDetails = "<p>" + "<em>Draft Type:</em>" + " " + league["draft"] + "|" + "<em>Scoring Style:</em>" + " " + league["scoring"] + "</p>";
+      $("#league-" + id).html(leagueDetails);
+      let teams = league["teams"];
+      let teamList = "";
+      teams.forEach(function(team) {
+        teamList += '<li class="js-team" data-id="' + team["id"] + '">' + team["team_name"] + '</li>';
+      });
+      $("#league-" + id + "-teams").html(teamList);
     })
   })
 }
