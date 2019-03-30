@@ -11,6 +11,7 @@ function getLeagues() {
       let league = data;
       let leagueDetails = "<p>" + "<em>Draft Type:</em>" + " " + league["draft"] + "|" + "<em>Scoring Style:</em>" + " " + league["scoring"] + "</p>";
       $("#league-" + id).html(leagueDetails);
+
       let teams = league["teams"];
       let teamList = "";
       teams.forEach(function(team) {

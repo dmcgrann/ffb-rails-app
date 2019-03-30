@@ -6,8 +6,8 @@
       <h4><%= link_to league.name, league_path(league) %></h4>
 
       <p><button class="details" data-id="<%= league.id %>">Details</button></p>
-      <ul id="league-<%= league.id %>-teams">
-      </ul>
+      <div id="league-<%= league.id %>"></div>
+      <ul id="league-<%= league.id %>-teams"></ul>
     <%end%>
 
 
