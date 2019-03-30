@@ -3,11 +3,10 @@
 
 
     <% @leagues.each do |league| %>
-      <h4<%= link_to league.name, league_path(league) %></h4>
+      <h4><%= link_to league.name, league_path(league) %></h4>
 
-      <button class="details" data-id="<%= league.id %>">Details</button>
+      <p><button class="details" data-id="<%= league.id %>">Details</button></p>
       <div id="league-<%= league.id %>"></div>
-      <br></br>
     <%end%>
 
 
