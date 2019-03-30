@@ -3,7 +3,10 @@ class LeaguesController < ApplicationController
 
   def index
     @leagues = League.all
-    render json: @league
+    respond_to do |format|
+      format.html
+      format.json {render json: @leagues}
+    end
   end
 
   def new
@@ -14,7 +17,7 @@ class LeaguesController < ApplicationController
     if current_user.admin && logged_in?
       @league = League.create(league_params)
         if @league.valid?
-          redirect_to league_path(@league)
+          redirect_to leagues_path
         else
           render 'new'
         end
@@ -26,6 +29,10 @@ class LeaguesController < ApplicationController
 
   def show
     @league = League.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json {render json: @leagues}
+    end
   end
 
   def edit
