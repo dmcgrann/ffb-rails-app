@@ -1,24 +1,25 @@
 <div class='container'>
-  <h3>Active Leagues</h3>
 
+  <h3>Active Leagues</h3>
+  <div class='darken'>
 
     <% @leagues.each do |league| %>
       <h4><%= link_to league.name, league_path(league) %></h4>
 
       <p><button class="details" data-id="<%= league.id %>">Details</button></p>
       <div id="league-<%= league.id %>"></div>
-      <p><strong>Teams</strong></p>
-      <ul id="league-<%= league.id %>-teams">
-      </ul>
+
+      <div id="league-<%= league.id %>-teams"></div>
+      <br></br>
     <%end%>
 
 
-
+  <br></br>
   <% if current_user.admin %>
     <div class='admin'>
       <h4>Admin Tools</h4>
       <p><%= link_to "Create a New League", new_league_path %></p>
     </div>
   <%end%>
-
+  </div>
 </div>
