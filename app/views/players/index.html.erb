@@ -17,24 +17,27 @@
     <%=submit_tag 'Search by Team'%>
   <%end%>
 
-  <!-- <div class='anchors'>
-    <a href="QBs">QBs</a>
-    <a href="#RBs">RBs</a>
+  <div class='anchors'>
+    <a href="#QBs" class="qbs">QBs</a>
+    <a href="#RBs" class="rbs">RBs</a>
     <a href="#WRs">WRs</a>
     <a href="#TEs">TEs</a>
-  </div> -->
-  <!-- <div class='darken'> -->
-    <div id="QBs">
-      <button class="qbs" data-id="<%= @players %>">QBs</button>
+  </div>
+
+  <div class='darken'>
+    <div id="players">
 
       <% @players.each do |p| %>
+        <div id="qbs<%= p.id %>"></div>
+      <%end%>
 
-      <div id="qbs<%= p.id %>"></div>
+      <% @players.each do |p| %>
+        <div id="rbs<%= p.id %>"></div>
       <%end%>
     </div>
 
 
 
-  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+  </div
 
 </div>
