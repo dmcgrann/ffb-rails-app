@@ -7,7 +7,7 @@ class Player < ApplicationRecord
   validates :nfl_team, :presence => true, :allow_blank => false
 
 
-  scope :list, -> { order(nfl_team: :asc) }
+  scope :list, -> { order(player_name: :asc) }
   scope :qb, -> { where(position: "QB")}
   scope :rb, -> { where(position: "RB")}
   scope :wr, -> { where(position: "WR")}

@@ -26,6 +26,10 @@
 
   <div class='darken'>
     <div id="players">
+      <% @players.list.each do |p| %>
+        <p><%= link_to p.player_info, player_path(p) %></p>
+      <%end%>
+
 
       <% @players.each do |p| %>
         <div id="qbs<%= p.id %>"></div>
