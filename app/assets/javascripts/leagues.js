@@ -4,7 +4,7 @@ $(document).on('ready turbolinks:load', function() {
 
 
 function getLeagues() {
-  $(".details").click(function(e){
+  $("a.details").click(function(e){
     e.preventDefault();
     let id = $(this).data("id");
     $.get("/leagues/" + id + ".json", function(data){
