@@ -20,8 +20,8 @@
   <div class='anchors'>
     <a href="#QBs" class="qbs">QBs</a>
     <a href="#RBs" class="rbs">RBs</a>
-    <a href="#WRs">WRs</a>
-    <a href="#TEs">TEs</a>
+    <a href="#WRs" class="wrs">WRs</a>
+    <a href="#TEs" class="tes">TEs</a>
   </div>
 
   <div class='darken'>
@@ -30,7 +30,6 @@
         <p><%= link_to p.player_info, player_path(p) %></p>
       <%end%>
 
-
       <% @players.each do |p| %>
         <div id="qbs<%= p.id %>"></div>
       <%end%>
@@ -38,9 +37,16 @@
       <% @players.each do |p| %>
         <div id="rbs<%= p.id %>"></div>
       <%end%>
+
+      <% @players.each do |p| %>
+        <div id="wrs<%= p.id %>"></div>
+      <%end%>
+
+      <% @players.each do |p| %>
+        <div id="tes<%= p.id %>"></div>
+      <%end%>
+
     </div>
-
-
 
   </div
 

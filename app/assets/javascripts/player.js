@@ -60,8 +60,41 @@ function listRBs() {
   })
 }
 
-function attachListeners() {
+function listWRs() {
+  $("a.wrs").click(function(e){
+    e.preventDefault();
+    $.get("/players" + ".json", function(data){
+    let list = data;
+    let wideReceivers = "";
+      list.forEach(function(player){
+        if (player["position"] === "WR") {
+          wideReceivers += "<p>" + Player.prototype.entry.call(player) + "</p>"
+        }
+      })
+    $("#players").html('').prepend(wideReceivers);
+    })
+  })
+}
 
+function listTEs() {
+  $("a.tes").click(function(e){
+    e.preventDefault();
+    $.get("/players" + ".json", function(data){
+    let list = data;
+    let tightEnds = "";
+      list.forEach(function(player){
+        if (player["position"] === "RB") {
+          tightEnds += "<p>" + Player.prototype.entry.call(player) + "</p>"
+        }
+      })
+    $("#players").html('').prepend(tightEnds);
+    })
+  })
+}
+
+function attachListeners() {
   listQBs();
   listRBs();
+  listWRs();
+  listTEs();
 }
