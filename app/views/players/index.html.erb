@@ -12,12 +12,8 @@
   </div>
   <%end%>
 
-  <%=form_tag(@players_path, method: 'get') do %>
-    <%= text_field_tag :nfl_team%>
-    <%=submit_tag 'Search by Team'%>
-  <%end%>
-
   <div class='anchors'>
+    <a href="/players">All Players</a>
     <a href="#QBs" class="qbs">QBs</a>
     <a href="#RBs" class="rbs">RBs</a>
     <a href="#WRs" class="wrs">WRs</a>
@@ -26,7 +22,7 @@
 
   <div class='darken'>
     <div id="players">
-      
+
 
       <% @players.each do |p| %>
         <div id="qbs<%= p.id %>"></div>

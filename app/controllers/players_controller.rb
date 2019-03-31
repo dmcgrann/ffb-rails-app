@@ -2,14 +2,10 @@ class PlayersController < ApplicationController
   include SessionsHelper
 
   def index
-    if params[:nfl_team]
-      @players = Player.team_search(params[:nfl_team])
-    else
-      @players = Player.all
-      respond_to do |format|
-        format.html
-        format.json {render json: @players}
-      end
+    @players = Player.all
+    respond_to do |format|
+      format.html
+      format.json {render json: @players}
     end
   end
 

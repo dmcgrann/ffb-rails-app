@@ -16,7 +16,7 @@
 
 $(document).on('ready turbolinks:load', function() {
   attachListeners();
-
+  allPlayers();
 })
 
 function Player(player_name, position, nfl_team) {
@@ -109,5 +109,4 @@ function attachListeners() {
   listRBs();
   listWRs();
   listTEs();
-  allPlayers();
 }
