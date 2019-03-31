@@ -1,19 +1,3 @@
-// window.onscroll = function() {scrollFunction()};
-//
-// function scrollFunction() {
-//   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-//     document.getElementById("myBtn").style.display = "block";
-//   } else {
-//     document.getElementById("myBtn").style.display = "none";
-//   }
-// }
-//
-// // When the user clicks on the button, scroll to the top of the document
-// function topFunction() {
-//   document.body.scrollTop = 0; // For Safari
-//   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-// }
-
 $(document).on('ready turbolinks:load', function() {
   attachListeners();
   allPlayers();
@@ -84,7 +68,7 @@ function listTEs() {
     let list = data;
     let tightEnds = "";
       list.forEach(function(player){
-        if (player["position"] === "RB") {
+        if (player["position"] === "TE") {
           tightEnds += "<p>" + Player.prototype.entry.call(player) + "</p>"
         }
       })
@@ -103,6 +87,7 @@ function allPlayers() {
   $("#players").html(all);
   })
 }
+
 
 function attachListeners() {
   listQBs();
