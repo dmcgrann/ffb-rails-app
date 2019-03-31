@@ -16,6 +16,7 @@
 
 $(document).on('ready turbolinks:load', function() {
   attachListeners();
+
 })
 
 function Player(player_name, position, nfl_team) {
@@ -92,9 +93,21 @@ function listTEs() {
   })
 }
 
+function allPlayers() {
+  $.get("/players" + ".json", function(data){
+  let list = data;
+  let all = "";
+    list.forEach(function(player){
+      all += "<p>" + Player.prototype.entry.call(player) + "</p>"
+    })
+  $("#players").html(all);
+  })
+}
+
 function attachListeners() {
   listQBs();
   listRBs();
   listWRs();
   listTEs();
+  allPlayers();
 }
