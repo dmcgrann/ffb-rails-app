@@ -5,7 +5,7 @@ class PlayersController < ApplicationController
     @players = Player.all
     respond_to do |format|
       format.html
-      format.json {render json: @players}
+      format.json {render json: @players, :layout => false }
     end
   end
 

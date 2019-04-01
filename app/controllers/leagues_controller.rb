@@ -27,7 +27,7 @@ class LeaguesController < ApplicationController
     @league = League.find(params[:id])
     respond_to do |format|
       format.html
-      format.json {render json: @league }
+      format.json {render json: @league, :layout => false }
     end
   end
 
