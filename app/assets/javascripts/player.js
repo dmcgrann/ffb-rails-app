@@ -10,7 +10,7 @@ function Player(player_name, position, nfl_team) {
 }
 
 Player.prototype.entry = function() {
-  return `${this.player_name}, ${this.nfl_team}`
+  return `<a href= "players/${this.id}"> ${this.player_name}, ${this.position}, ${this.nfl_team} </a>`
 }
 
 function listQBs() {
