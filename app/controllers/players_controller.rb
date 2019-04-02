@@ -5,7 +5,7 @@ class PlayersController < ApplicationController
     @players = Player.all
     respond_to do |format|
       format.html
-      format.json {render json: @players, :layout => false }
+      format.json {render json: @players }
     end
   end
 
@@ -17,7 +17,7 @@ class PlayersController < ApplicationController
     if current_user.admin && logged_in?
       @player = Player.create(player_params)
       if @player.valid?
-        render json: @player, status: 201
+        redirect_to player_path(@player)
       else
         redirect_to players_path
       end
@@ -29,6 +29,10 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json {render json: @players }
+    end
   end
 
   def edit

@@ -88,29 +88,10 @@ function allPlayers() {
   })
 }
 
-function newPlayer() {
-  $('form').submit(function(event) {
-      //prevent form from submitting the default way
-      event.preventDefault();
-
-      var values = $(this).serialize();
-
-      var result = $.post('/players', values);
-
-      result.done(function(data) {
-        var player = data;
-        $("#playerName").text(player["player_name"]);
-        $("#playerPosition").text(player["position"]);
-        $("#playerTeam").text(player["nfl_team"]);
-      });
-    });
-  }
-
 
 function attachListeners() {
   listQBs();
   listRBs();
   listWRs();
   listTEs();
-  newPlayer();
 }
