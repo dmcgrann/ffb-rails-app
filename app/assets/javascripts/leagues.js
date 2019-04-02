@@ -1,5 +1,6 @@
 $(document).on('ready turbolinks:load', function() {
   getLeagues();
+  newLeague();
 })
 
 
@@ -19,6 +20,19 @@ function getLeagues() {
         teamList += '<p data-id="' + team["id"] + '">' + team["team_name"] + '</p>';
       });
       $("#league-" + id + "-teams").html(teamList);
+    })
+  })
+}
+
+function newLeague() {
+  $('form').submit(function(e) {
+    e.preventDefault();
+
+    let values = $(this).serialize();
+    let info = $.post("/leagues", values)
+
+    info.done(function(data) {
+      console.log(data)
     })
   })
 }
