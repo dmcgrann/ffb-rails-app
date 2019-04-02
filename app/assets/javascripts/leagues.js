@@ -24,6 +24,7 @@ function getLeagues() {
   })
 }
 
+
 function newLeague() {
   $('form').submit(function(e) {
     e.preventDefault();
@@ -33,6 +34,10 @@ function newLeague() {
 
     info.done(function(data) {
       console.log(data)
+      let league = data
+      $("#leagueName").text(league["name"])
+      $("#leagueScoring").text(league["scoring"])
+      $("#leagueDraft").text(league["draft"])
     })
   })
 }
