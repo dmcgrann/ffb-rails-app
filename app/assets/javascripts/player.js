@@ -1,6 +1,6 @@
-$(document).on('ready turbolinks:load', function() {
+$(document).on('ready', function() {
+  allPlayers()
   attachListeners();
-  allPlayers();
 })
 
 function Player(player_name, position, nfl_team) {
@@ -84,7 +84,7 @@ function allPlayers() {
     list.forEach(function(player){
       all += "<p>" + Player.prototype.entry.call(player) + "</p>"
     })
-  $("#players").html(all);
+  $("#players").html('').prepend(all);
   })
 }
 

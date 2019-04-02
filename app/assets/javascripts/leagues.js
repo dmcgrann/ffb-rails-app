@@ -1,6 +1,5 @@
 $(document).on('ready turbolinks:load', function() {
   getLeagues();
-  newLeague();
 })
 
 
@@ -33,11 +32,10 @@ function newLeague() {
     let info = $.post("/leagues", values)
 
     info.done(function(data) {
-      console.log(data)
       let league = data
-      $("#leagueName").text(league["name"])
-      $("#leagueScoring").text(league["scoring"])
-      $("#leagueDraft").text(league["draft"])
+      $("#leagueName").html(league["name"])
+      $("#leagueScoring").html(league["scoring"])
+      $("#leagueDraft").html(league["draft"])
     })
   })
 }
