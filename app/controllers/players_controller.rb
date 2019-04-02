@@ -17,9 +17,9 @@ class PlayersController < ApplicationController
     if current_user.admin && logged_in?
       @player = Player.create(player_params)
       if @player.valid?
-        redirect_to players_path
+        render json: @player, status: 201
       else
-        render 'new'
+        redirect_to players_path
       end
     else
       flash[:alert] = "Must be an admin to add a player."

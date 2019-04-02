@@ -4,9 +4,9 @@ $(document).on('ready turbolinks:load', function() {
 })
 
 function Player(player_name, position, nfl_team) {
-  this.player_name = name;
+  this.player_name = player_name;
   this.position = position;
-  this.nfl_team = team;
+  this.nfl_team = nfl_team;
 }
 
 Player.prototype.entry = function() {
@@ -88,10 +88,29 @@ function allPlayers() {
   })
 }
 
+function newPlayer() {
+  $('form').submit(function(event) {
+      //prevent form from submitting the default way
+      event.preventDefault();
+
+      var values = $(this).serialize();
+
+      var result = $.post('/players', values);
+
+      result.done(function(data) {
+        var player = data;
+        $("#playerName").text(player["player_name"]);
+        $("#playerPosition").text(player["position"]);
+        $("#playerTeam").text(player["nfl_team"]);
+      });
+    });
+  }
+
 
 function attachListeners() {
   listQBs();
   listRBs();
   listWRs();
   listTEs();
+  newPlayer();
 }
