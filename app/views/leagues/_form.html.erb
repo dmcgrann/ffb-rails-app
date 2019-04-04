@@ -9,7 +9,7 @@
   </div>
 <% end %>
 
-<%= form_for @league, turbolinks_form: true do |f| %>
+<%= form_for @league do |f| %>
   <div class="form-group">
   <p><label>League Name</label><br>
   <%= f.text_field :name %></p>
