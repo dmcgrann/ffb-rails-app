@@ -31,11 +31,11 @@ function newLeague() {
     let values = $(this).serialize();
     let info = $.post("/leagues", values)
 
-    info.done(function(data) {
-      let league = data
-      $("#leagueName").html(league["name"])
-      $("#leagueScoring").html(league["scoring"])
-      $("#leagueDraft").html(league["draft"])
+    info.done(function(league) {
+
+      $("#leagueName").append(league["name"])
+      $("#leagueScoring").append(league["scoring"])
+      $("#leagueDraft").append(league["draft"])
     })
   })
 }

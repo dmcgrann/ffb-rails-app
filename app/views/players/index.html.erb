@@ -14,7 +14,7 @@
 
 
   <div class='anchors'>
-    
+    <a href="#All" class="all">All Players</a>
     <a href="#QBs" class="qbs">QBs</a>
     <a href="#RBs" class="rbs">RBs</a>
     <a href="#WRs" class="wrs">WRs</a>
@@ -24,6 +24,10 @@
 
   <div class='darken'>
     <div id="players">
+
+      <% @players.each do |p| %>
+        <div id="all<%= p.id %>"></div>
+      <%end%>
 
       <% @players.each do |p| %>
         <div id="qbs<%= p.id %>"></div>

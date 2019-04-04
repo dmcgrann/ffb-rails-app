@@ -1,5 +1,4 @@
-$(document).on('ready', function() {
-  allPlayers()
+$(document).on('ready turbolinks:load', function() {
   attachListeners();
 })
 
@@ -78,13 +77,16 @@ function listTEs() {
 }
 
 function allPlayers() {
-  $.get("/players" + ".json", function(data){
-  let list = data;
-  let all = "";
-    list.forEach(function(player){
-      all += "<p>" + Player.prototype.entry.call(player) + "</p>"
+  $("a.all").click(function(e){
+    e.preventDefault();
+    $.get("/players" + ".json", function(data){
+    let list = data;
+    let playerList = "";
+      list.forEach(function(player){
+        playerList += "<p>" + Player.prototype.entry.call(player) + "</p>"
+      })
+    $("#players").html('').prepend(playerList);
     })
-  $("#players").html('').prepend(all);
   })
 }
 
@@ -94,4 +96,5 @@ function attachListeners() {
   listRBs();
   listWRs();
   listTEs();
+  allPlayers()
 }
