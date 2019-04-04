@@ -1,5 +1,6 @@
 $(document).on('ready turbolinks:load', function() {
   getLeagues();
+  newLeague();
 })
 
 
@@ -21,4 +22,18 @@ function getLeagues() {
       $("#league-" + id + "-teams").html(teamList);
     })
   })
+}
+
+function newLeague() {
+  $("form#new_league").submit(function(e) {
+    e.preventDefault();
+    var values = $(this).serialize();
+    var posting = $.post('/leagues', values);
+    posting.done(function(response) {
+      var leag = response;
+      $("#leagueName").text(leag["name"]);
+      $("#leagueDraft").text(leag["draft"]);
+      $("leagueScoring").text(leag["scoring"]);
+    });
+    })
 }
