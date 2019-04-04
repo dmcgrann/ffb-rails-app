@@ -1,6 +1,4 @@
-$(document).on('ready turbolinks:load', function() {
-  attachListeners();
-})
+
 
 function Player(player_name, position, nfl_team) {
   this.player_name = player_name;
@@ -88,13 +86,4 @@ function allPlayers() {
     $("#players").html('').prepend(playerList);
     })
   })
-}
-
-
-function attachListeners() {
-  listQBs();
-  listRBs();
-  listWRs();
-  listTEs();
-  allPlayers()
 }

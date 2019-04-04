@@ -15,3 +15,17 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(document).on('ready turbolinks:load', function() {
+  attachListeners();
+})
+
+
+function attachListeners() {
+  getLeagues();
+  listQBs();
+  listRBs();
+  listWRs();
+  listTEs();
+  allPlayers()
+}

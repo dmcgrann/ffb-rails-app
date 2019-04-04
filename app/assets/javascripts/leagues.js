@@ -1,6 +1,4 @@
-$(document).on('ready turbolinks:load', function() {
-  getLeagues();
-})
+
 
 
 function getLeagues() {
