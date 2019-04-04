@@ -1,7 +1,7 @@
 
 
 
-function getLeagues() {
+$(function() {
   $("a.details").click(function(e){
     e.preventDefault();
     let id = $(this).data("id");
@@ -19,7 +19,7 @@ function getLeagues() {
       $("#league-" + id + "-teams").html(teamList);
     })
   })
-}
+})
 
 
 $(function() {
@@ -28,7 +28,6 @@ $(function() {
       let values = $(this).serialize();
       let result = $.post('/leagues', values)
       result.done(function(response) {
-        console.log(response)
         var league = response;
         $("#leagueName").text(league["name"]);
         $("#leagueDraft").text(league["draft"]);

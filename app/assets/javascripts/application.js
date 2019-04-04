@@ -22,10 +22,9 @@ $(document).on('ready turbolinks:load', function() {
 
 
 function attachListeners() {
-  getLeagues();
   listQBs();
   listRBs();
   listWRs();
   listTEs();
-  allPlayers()
+  allPlayers();
 }
