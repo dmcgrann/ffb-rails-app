@@ -22,20 +22,3 @@ function getLeagues() {
     })
   })
 }
-
-
-function newLeague() {
-  $('form').submit(function(e) {
-    e.preventDefault();
-
-    let values = $(this).serialize();
-    let info = $.post("/leagues", values)
-
-    info.done(function(league) {
-
-      $("#leagueName").append(league["name"])
-      $("#leagueScoring").append(league["scoring"])
-      $("#leagueDraft").append(league["draft"])
-    })
-  })
-}
