@@ -1,6 +1,6 @@
 <div class='container'>
 
-  <h3><%=@player.player_name%>, <%=@player.position%>, <%=@player.nfl_team%></h3>
+  <h3 id="info"></h3>
 
   <% if current_user.admin %>
     <p><%= render 'form' %></p>

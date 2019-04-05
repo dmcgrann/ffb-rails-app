@@ -101,7 +101,8 @@ function playerUpdate() {
         dataType: "json",
         method: "PATCH"
       }).done(function(response) {
-        response
+        console.log(response)
+        $("#info").text(response["player_name"])
 
 
       });

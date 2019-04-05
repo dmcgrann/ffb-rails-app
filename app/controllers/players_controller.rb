@@ -43,6 +43,7 @@ class PlayersController < ApplicationController
     if current_user.admin && logged_in?
       @player = Player.find(params[:id])
       @player.update(player_params)
+      render json: @player
       # render json: @player
       # if @player.valid?
       #   redirect_to player_path(@player)
