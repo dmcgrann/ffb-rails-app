@@ -35,21 +35,20 @@ class PlayersController < ApplicationController
     end
   end
 
-  # def edit
-  #   @player = Player.find(params[:id])
-  # end
+  def edit
+    @player = Player.find(params[:id])
+  end
 
   def update
     if current_user.admin && logged_in?
       @player = Player.find(params[:id])
       @player.update(player_params)
       render json: @player
-      # render json: @player
-      # if @player.valid?
-      #   redirect_to player_path(@player)
-      # else
-      #   render 'edit'
-      # end
+      if @player.valid?
+        redirect_to player_path(@player)
+      else
+        render 'edit'
+      end
     else
       flash[:alert] = "Must be an admin to add a player."
       redirect_to players_path

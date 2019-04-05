@@ -1,9 +1,9 @@
 <div class='container'>
 
-  <h3 id="info"></h3>
+  <h3><%=@player.player_name%>, <%=@player.position%>, <%=@player.nfl_team%></h3>
 
   <% if current_user.admin %>
-    <p><%= render 'form' %></p>
+    <p><%= link_to "Update Player Info", edit_player_path %></p>
   <%end%>
-
+  
 </div>
