@@ -86,3 +86,24 @@ function allPlayers() {
     })
   })
 }
+
+function playerUpdate() {
+  $('.edit_player').submit(function(e) {
+      console.log("HI")
+      e.preventDefault();
+
+      let data = $(this).serialize();
+      let url = this.url
+
+      $.ajax({
+        url: url,
+        data: data,
+        dataType: "json",
+        method: "PATCH"
+      }).done(function(response) {
+        response
+
+
+      });
+    });
+  }

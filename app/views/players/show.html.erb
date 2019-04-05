@@ -3,7 +3,7 @@
   <h3><%=@player.player_name%>, <%=@player.position%>, <%=@player.nfl_team%></h3>
 
   <% if current_user.admin %>
-    <p><%= link_to "Update Player Info", edit_player_path %></p>
+    <p><%= render 'form' %></p>
   <%end%>
 
 </div>
