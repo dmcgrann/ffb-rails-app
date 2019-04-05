@@ -25,11 +25,17 @@ function newLeague() {
       let values = $(this).serialize();
       let result = $.post('/leagues', values)
       result.done(function(response) {
+        clearForm();
         var league = response;
         $("#leagueName").text(league["name"]);
         $("#leagueDraft").text(league["draft"]);
         $("#leagueScoring").text(league["scoring"]);
-
       });
     });
   }
+
+function clearForm() {
+  document.getElementById("new_submit").disabled = false;
+  $(':input','#new_league') .not(':button, :submit, :reset, :hidden') .val('')
+
+}
