@@ -4,16 +4,16 @@ function getLeagues() {
     let id = $(this).data("id");
     $.get("/leagues/" + id + ".json", function(data){
       let league = data;
-      let leagueDetails = "<p>" + "<strong>Draft Type:</strong>" + " " + league["draft"] + "</p><p>" + "<strong>Scoring Style:</strong>" + " " + league["scoring"] + "</p>" + "<h4>" + "Teams" + "</h4>";
+      let leagueDetails = "<p>" + "<strong>Draft Type:</strong>" + " " + league["draft"] + "</p><p>" + "<strong>Scoring Style:</strong>" + " " + league["scoring"] + "</p>" + "<h4>" + "Users" + "</h4>";
       $("#league-" + id).html(leagueDetails);
 
-      let teams = league["teams"];
-      let teamList = "";
-      teams.forEach(function(team) {
+      let users = league["users"];
+      let userList = "";
+      users.forEach(function(user) {
 
-        teamList += '<p data-id="' + team["id"] + '">' + team["team_name"] + '</p>';
+        userList += '<p data-id="' + user["id"] + '">' + user["name"] + '</p>';
       });
-      $("#league-" + id + "-teams").html(teamList);
+      $("#league-" + id + "-users").html(userList);
     })
   })
 }
