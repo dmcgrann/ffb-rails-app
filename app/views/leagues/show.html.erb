@@ -16,6 +16,22 @@
     <% if current_user.admin %>
     <div class='admin'>
       <h4>Admin Tools</h4>
+
+      <%= form_for(@league) do |f| %>
+
+        <div class="form-group">
+
+
+            <label>Select a User</label><br>
+
+
+          <p><%= user_id(@league) %></p>
+
+
+          <%= f.submit "Submit" %>
+        </div>
+      <%end%>
+
       <%= link_to "Edit League", edit_league_path(@league) %><br>
 
       <%= link_to "Delete", @league, method: :delete, data: { confirm: "Really?" } %>

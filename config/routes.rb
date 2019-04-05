@@ -14,7 +14,10 @@ Rails.application.routes.draw do
     resources :teams, only: [:show, :new, :create, :edit, :update, :destroy]
   end
 
-  resources :leagues
+  resources :leagues do
+    resources :users
+  end
+  
   resources :teams
   resources :session, only: [:create, :destroy]
   resources :players
