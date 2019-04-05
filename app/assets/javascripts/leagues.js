@@ -1,7 +1,4 @@
-
-
-
-$(function() {
+function getLeagues() {
   $("a.details").click(function(e){
     e.preventDefault();
     let id = $(this).data("id");
@@ -19,11 +16,11 @@ $(function() {
       $("#league-" + id + "-teams").html(teamList);
     })
   })
-})
+}
 
 
-$(function() {
-  $('form').submit(function(e) {
+function newLeague() {
+  $('form#new_league').submit(function(e) {
       e.preventDefault();
       let values = $(this).serialize();
       let result = $.post('/leagues', values)
@@ -35,4 +32,4 @@ $(function() {
 
       });
     });
-  });
+  }

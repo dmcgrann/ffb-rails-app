@@ -1,5 +1,3 @@
-
-
 function Player(player_name, position, nfl_team) {
   this.player_name = player_name;
   this.position = position;
@@ -9,6 +7,7 @@ function Player(player_name, position, nfl_team) {
 Player.prototype.entry = function() {
   return `<a href= "players/${this.id}"> ${this.player_name}, ${this.position}, ${this.nfl_team} </a>`
 }
+
 
 function listQBs() {
   $("a.qbs").click(function(e){
