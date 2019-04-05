@@ -29,5 +29,4 @@ function attachListeners() {
   allPlayers();
   getLeagues();
   newLeague();
-  playerUpdate();
 }

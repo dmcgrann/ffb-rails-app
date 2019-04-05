@@ -29,10 +29,7 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
-    respond_to do |format|
-      format.html
-      format.json {render json: @players }
-    end
+    
   end
 
   def edit
@@ -43,7 +40,7 @@ class PlayersController < ApplicationController
     if current_user.admin && logged_in?
       @player = Player.find(params[:id])
       @player.update(player_params)
-      render json: @player
+
       if @player.valid?
         redirect_to player_path(@player)
       else
