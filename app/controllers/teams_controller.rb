@@ -52,11 +52,9 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     if current_user.id == @team.user_id || current_user.admin
       @team.update(team_params)
-      if @team.valid?
-        redirect_to user_team_path(@team)
-      else
-        render 'edit'
-      end
+
+      render json: @team
+  
     else
       flash[:alert] = "Action not permitted."
       redirect_to root_path

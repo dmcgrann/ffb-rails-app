@@ -5,25 +5,7 @@
     League: <%=@team.league.name%></p>
 
   <div class='darken'>
-    <h4>QBs</h4>
-    <% @team.players.qb.each do |player| %>
-      <p><%= player.player_name%>, <%=player.nfl_team %></p>
-    <%end%><br>
-
-    <h4>RBs</h4>
-    <% @team.players.rb.each do |player| %>
-      <p><%= player.player_name%>, <%=player.nfl_team %></p>
-    <%end%><br>
-
-    <h4>WRs</h4>
-    <% @team.players.wr.each do |player| %>
-      <p><%= player.player_name%>, <%=player.nfl_team %></p>
-    <%end%><br>
-
-    <h4>TEs</h4>
-    <% @team.players.te.each do |player| %>
-      <p><%= player.player_name%>, <%=player.nfl_team %></p>
-    <%end%><br>
+    <div id="X"></div>
 
     <a id="add" href="#" >Add Players</a>
 

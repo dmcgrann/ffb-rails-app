@@ -14,9 +14,11 @@ function addPlayers() {
     e.preventDefault();
     let values = $(this).serialize();
     let id = $(this).attr("action")
-    let result = $.post(id, values)
+    let user = $("input[name='team[user_id]']").attr("value")
+    let result = $.post("/users/" + user + id, values)
     result.done(function(response) {
-      console.log(values)
+
+    console.log(response);
     });
 
   })
