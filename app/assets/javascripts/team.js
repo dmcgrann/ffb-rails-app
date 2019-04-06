@@ -1,9 +1,9 @@
-function addPlayers() {
-    $('#players').hide();
+function showHide() {
+    $('#playerForm').hide();
 
-    $('#add').on('click', function(e) {
-    $('#players').show();
-    
+    $('#add').click(function(e) {
+    $('#playerForm').show();
+
     e.preventDefault();
   })
 
