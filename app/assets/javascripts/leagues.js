@@ -26,7 +26,7 @@ function newLeague() {
       let result = $.post('/leagues', values)
       result.done(function(response) {
         clearForm();
-        var league = response;
+        let league = response;
         $("#leagueName").text(league["name"]);
         $("#leagueDraft").text(league["draft"]);
         $("#leagueScoring").text(league["scoring"]);
@@ -40,15 +40,14 @@ function clearForm() {
 }
 
 function nextLeague() {
-  $(".js-next").on("click", function(e) {
+  $(".js-next").click(function(e) {
     e.preventDefault();
-    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    let nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.get("/leagues/" + nextId + ".json", function(data) {
-      console.log(data)
-      $("#leagueName").text(data["name"]);
-      $("#leagueDraft").text(data["draft"]);
-      $("#leagueScoring").text(data["scoring"]);
-      $(".js-next").attr("data-id", data["id"]);
+        $("#leagueName").text(data["name"]);
+        $("#leagueDraft").text(data["draft"]);
+        $("#leagueScoring").text(data["scoring"]);
+        $(".js-next").attr("data-id", data["id"]);
     });
   });
 }
