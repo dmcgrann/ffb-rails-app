@@ -11,29 +11,23 @@ class TeamsController < ApplicationController
   end
 
   def new
-    @user= User.find(params[:user_id])
-    # if params[:user_id]  && !User.exists?(params[:user_id])
-    #   flash[:alert] = "User not found."
-    #   redirect_to root_path
-    # else
-    #   @team = Team.new(user_id: params[:user_id])
-    # end
+    if params[:user_id]  && !User.exists?(params[:user_id])
+      flash[:alert] = "User not found."
+      redirect_to root_path
+    else
+      @team = Team.new(user_id: params[:user_id])
+    end
   end
 
   def create
-    @team = @user.team.build(team_params)
-      if @team.save
-        render json: @team
-      end
-
-
-    # if @team.valid? && (current_user.id == @team.user_id || current_user.admin)
-    #   @team.save
-    #   flash[:success] = "New team created."
-    #   redirect_to user_path(current_user)
-    # else
-    #   render 'new'
-    # end
+    @team = Team.new(team_params)
+    if @team.valid? && (current_user.id == @team.user_id || current_user.admin)
+      @team.save
+      flash[:success] = "New team created."
+      redirect_to user_path(current_user)
+    else
+      render 'new'
+    end
   end
 
   def show

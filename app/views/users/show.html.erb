@@ -1,19 +1,13 @@
 <div class='container'>
   <h3>Welcome, <%=@user.name.upcase%>!</h3>
   <h4>Teams</h4>
-  <%= form_for Team.new do |f| %>
+  <ol>
+    <% @user.teams.each do |team| %>
+      <li><%=link_to team.team_name, user_team_path(@user, team)%></li>
+    <%end%>
+  </ol>
 
-      <p><label>Team Name</label><br>
-      <%= f.text_field :team_name %></p>
-
-      <p><label>Select a League</label><br>
-      <%= f.select :'league_id', options_from_collection_for_select(League.all, :id, :name) %></p>
-
-      <%= f.submit "Submit" %>
-
-  <%end%>
-
-  <!-- <p><%= link_to "Create a New Team", new_user_team_path(@user) %></p> -->
+  <p><%= link_to "Create a New Team", new_user_team_path(@user) %></p>
 
   <% if current_user.admin %>
   <div class='admin'>
