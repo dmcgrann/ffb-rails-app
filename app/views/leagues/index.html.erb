@@ -7,9 +7,9 @@
       <h4><%= link_to league.name, league_path(league) %></h4>
 
       <p><a href class="details" data-id="<%= league.id %>">Details</a></p>
-      <div id="league-<%= league.id %>"></div>
+      <div class="league" id="league-<%= league.id %>"></div>
 
-      <div id="league-<%= league.id %>-teams"></div>
+      <div class="teams" id="league-<%= league.id %>-teams"></div>
       <br></br>
     <%end%>
 
