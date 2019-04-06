@@ -1,16 +1,17 @@
 <div class='container'>
   <h3>League Homepage</h3>
 
-  <div class="darken">
-    <p id="leagueName"><%=@league.name%></p>
-    <p id="leagueDraft"><%=@league.draft%></p>
-    <p id="leagueScoring"><%=@league.scoring%></p>
-    <ul id="leagueTeams"><%@league.teams.each do |team|%>
-      <li><%=team.team_name%></li>
-      <%end%>
-    </ul>
-  </div>
+  <div class='darken'>
+    <h4><%= @league.name %></h4>
+    <p>Scoring: <%= @league.scoring %><br>
+    Draft: <%= @league.draft %></p>
+    <br></br>
+    <h4>Teams</h4>
+    <% @league.teams.each do |team| %>
 
+        <%= link_to team.team_name, user_team_path(team.user_id, team) %><br>
+
+    <%end%>
     <br></br>
     <a href="#" class="js-next" data-id="<%=@league.id%>">Next...</a>
     <% if current_user.admin %>

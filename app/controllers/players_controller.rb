@@ -29,7 +29,10 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
-    
+    respond_to do |format|
+      format.html
+      format.json {render json: @player, :layout => false }
+    end
   end
 
   def edit

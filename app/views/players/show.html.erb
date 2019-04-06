@@ -1,9 +1,13 @@
 <div class='container'>
 
-  <h3><%=@player.player_name%>, <%=@player.position%>, <%=@player.nfl_team%></h3>
+  <h3 id="playerName"><%=@player.player_name%></h3>
+  <p id="playerPosition"><%=@player.position%></p>
+  <p id="playerNflTeam"><%=@player.nfl_team%></p>
+
+  <a href="#" class="js-next" data-id="<%=@player.id%>">Next...</a>
 
   <% if current_user.admin %>
     <p><%= link_to "Update Player Info", edit_player_path %></p>
   <%end%>
-  
+
 </div>

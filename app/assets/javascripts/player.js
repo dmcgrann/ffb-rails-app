@@ -86,3 +86,20 @@ function allPlayers() {
     })
   })
 }
+
+function nextPlayer() {
+  $(".js-next").click(function(e) {
+    e.preventDefault();
+    let nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    let response = $.get("/players/" + nextId + ".json")
+    response.done(function(data) {
+        $("#playerName").text(data["player_name"]);
+        $("#playerPosition").text(data["position"]);
+        $("#playerNflTeam").text(data["nfl_team"]);
+        $(".js-next").attr("data-id", data["id"]);
+    }).fail(function(data) {
+      alert("No more players.")
+      window.history.back();
+    })
+  });
+}
