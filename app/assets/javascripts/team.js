@@ -8,3 +8,15 @@ function showHide() {
   })
 
 }
+
+function addPlayers() {
+  $("#edit_team").submit(function(e){
+    e.preventDefault();
+    let values = $(this).serialize();
+    let result = $.post('/teams', values)
+    result.done(function(response) {
+      console.log(data)
+    });
+
+  })
+}
