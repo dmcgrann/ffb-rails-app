@@ -4,7 +4,7 @@ function getLeagues() {
     let id = $(this).data("id");
     $.get("/leagues/" + id + ".json", function(data){
       let league = data;
-      let leagueDetails = "<p>" + "<strong>Draft Type:</strong>" + " " + league["draft"] + "</p><p>" + "<strong>Scoring Style:</strong>" + " " + league["scoring"] + "</p>" + "<p>" + "<strong>Teams:</strong>" + "</p>";
+      let leagueDetails = "<p>" + "<strong>Draft Type:</strong>" + "</p>" + "<ul>" + league["draft"] + "</ul>" + "<p>" + "<strong>Scoring Style:</strong>" + "</p>" + "<ul>" + league["scoring"] + "</ul>" + "<p>" + "<strong>Teams:</strong>" + "</p>";
       $("#league-" + id).html(leagueDetails);
 
       let teams = league["teams"];

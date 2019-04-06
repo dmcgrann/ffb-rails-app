@@ -6,11 +6,12 @@
     <% @leagues.each do |league| %>
       <h4><%= link_to league.name, league_path(league) %></h4>
 
-      <p><a href class="details" data-id="<%= league.id %>">Details</a>
-      <div id="league-<%= league.id %>"></div>
+      <p><a href class="details" data-id="<%= league.id %>">Details</a></p>
+      <div class="results"
+        <div id="league-<%= league.id %>"></div>
 
-      <div id="league-<%= league.id %>-teams"></div>
-      </p>
+        <div id="league-<%= league.id %>-teams"></div>
+      </div>
       <br></br>
     <%end%>
 
