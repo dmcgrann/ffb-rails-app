@@ -32,7 +32,10 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
-    render json: @team
+    respond_to do |format|
+      format.html
+      format.json {render json: @team, :layout => false }
+    end
   end
 
   def edit

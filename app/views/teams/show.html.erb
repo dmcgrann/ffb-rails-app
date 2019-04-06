@@ -29,7 +29,7 @@
 
     <div id="playerForm">
 
-      <%= form_for @team do |f| %>
+      <%= form_for ([@user, @team]) do |f| %>
       <%= user_id_field(@team) %>
             <h4>QBs</h4>
             <ul>
@@ -60,7 +60,7 @@
               </ul>
 
             <%= f.submit "Submit" %>
-        
+
       <%end%>
 
 
@@ -68,8 +68,8 @@
     <br></br>
 
     <% if current_user.id == @team.user_id || current_user.admin %>
-      <p><%= link_to "Edit Team/Add Players", edit_user_team_path(@team.user_id, @team) %><br>
-      <%= link_to "Delete Team", @team, method: :delete, data: { confirm: "Really?" } %></p>
+      <%= link_to "Edit Team Name", edit_user_team_path(@team.user_id, @team) %><br>
+      <%= link_to "Delete Team", @team, method: :delete, data: { confirm: "Really?" } %>
     <% end %>
   </div>
 </div>
