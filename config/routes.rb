@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :leagues do
     resources :users
   end
-  get '/leagues/:id/league_data', to: 'leagues#league_data'
+
   resources :teams
   resources :session, only: [:create, :destroy]
   resources :players

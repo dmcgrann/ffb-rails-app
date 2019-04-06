@@ -43,7 +43,7 @@ function nextLeague() {
   $(".js-next").on("click", function(e) {
     e.preventDefault();
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-    $.get("/leagues/" + nextId + "/league_data", function(data) {
+    $.get("/leagues/" + nextId + ".json", function(data) {
       console.log(data)
       $("#leagueName").text(data["name"]);
       $("#leagueDraft").text(data["draft"]);

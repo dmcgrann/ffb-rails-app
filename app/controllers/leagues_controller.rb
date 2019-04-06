@@ -5,11 +5,6 @@ class LeaguesController < ApplicationController
     @leagues = League.all
   end
 
-  def league_data
-    @league = League.find(params[:id])
-    render json: @league
-  end
-
   def new
     @league = League.new
   end
