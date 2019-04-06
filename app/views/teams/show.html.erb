@@ -25,6 +25,12 @@
       <p><%= player.player_name%>, <%=player.nfl_team %></p>
     <%end%><br>
 
+    <a href="#" id="add">Add Players</a>
+
+    <div id="players">
+      <p> Hello </p>
+    </div>
+
     <% if current_user.id == @team.user_id || current_user.admin %>
       <p><%= link_to "Edit Team/Add Players", edit_user_team_path(@team.user_id, @team) %><br>
       <%= link_to "Delete Team", @team, method: :delete, data: { confirm: "Really?" } %></p>

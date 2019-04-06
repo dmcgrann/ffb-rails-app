@@ -27,6 +27,7 @@ function attachListeners() {
   listWRs();
   listTEs();
   allPlayers();
+  addPlayers();
   nextPlayer();
   getLeagues();
   newLeague();
