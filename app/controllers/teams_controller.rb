@@ -38,15 +38,15 @@ class TeamsController < ApplicationController
     end
   end
 
-  def edit
-    if params[:user_id]
-      user = User.find_by(id: params[:user_id])
-      @team = user.teams.find_by(id: params[:id])
-    else
-      flash[:alert] = "Action not permitted."
-      redirect_to root_path
-    end
-  end
+  # def edit
+  #   if params[:user_id]
+  #     user = User.find_by(id: params[:user_id])
+  #     @team = user.teams.find_by(id: params[:id])
+  #   else
+  #     flash[:alert] = "Action not permitted."
+  #     redirect_to root_path
+  #   end
+  # end
 
   def update
     @team = Team.find(params[:id])
@@ -54,7 +54,7 @@ class TeamsController < ApplicationController
       @team.update(team_params)
 
       render json: @team
-  
+
     else
       flash[:alert] = "Action not permitted."
       redirect_to root_path

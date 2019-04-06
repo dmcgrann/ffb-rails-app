@@ -15,12 +15,22 @@ function addPlayers() {
     let values = $(this).serialize();
     let id = $(this).attr("action")
     let user = $("input[name='team[user_id]']").attr("value")
-    let result = $.post("/users/" + user + id, values)
-    result.done(function(response) {
+    let url = "/users/" + user + id
 
-    console.log(response);
-    });
+    $.ajax({
+      url: url,
+      data: values,
+      dataType: "json",
+      method: "POST"
+    }).done(function(stuff) {
+      let players = stuff["players"];
+      let playerList = "";
+      players.forEach(function(player) {
 
+        playerList += '<ul data-id="' + player["id"] + '">' + player["player_name"] + '</ul>';
+      });
+      $("#x").html(playerList);
+    })
   })
 }
 
