@@ -37,5 +37,15 @@ function newLeague() {
 function clearForm() {
   document.getElementById("new_submit").disabled = false;
   $(':input','#new_league') .not(':button, :submit, :reset, :hidden') .val('')
+}
 
+function nextLeague() {
+  $(".js-next").on("click", function() {
+    var nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    $.getJSON("/leagues/" + nextId + ",json", function(data) {
+      console.log(data)
+      // re-set the id to current on the link
+      $(".js-next").attr("data-id", data["id"]);
+    });
+  });
 }
