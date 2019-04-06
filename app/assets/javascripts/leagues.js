@@ -40,11 +40,14 @@ function clearForm() {
 }
 
 function nextLeague() {
-  $(".js-next").on("click", function() {
+  $(".js-next").on("click", function(e) {
+    e.preventDefault();
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-    $.getJSON("/leagues/" + nextId + ",json", function(data) {
+    $.get("/leagues/" + nextId + "/league_data", function(data) {
       console.log(data)
-      // re-set the id to current on the link
+      $("#leagueName").text(data["name"]);
+      $("#leagueDraft").text(data["draft"]);
+      $("#leagueScoring").text(data["scoring"]);
       $(".js-next").attr("data-id", data["id"]);
     });
   });
