@@ -50,8 +50,9 @@ function nextLeague() {
         $("#leagueScoring").text(data["scoring"]);
         $("#leagueTeams").text(data["teams"]);
         $(".js-next").attr("data-id", data["id"]);
-    }).fail(function(data){
+    }).fail(function(data) {
       alert("No more teams.")
+      window.history.back();
     })
   });
 }
