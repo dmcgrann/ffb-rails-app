@@ -101,6 +101,12 @@ body {
   padding: 0 10px 0 10px;
 }
 
+
+.darken ul {
+  color: #eaeaea;
+  
+}
+
 #myBtn {
   display: none; /* Hidden by default */
   position: fixed; /* Fixed/sticky position */
