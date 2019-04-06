@@ -43,11 +43,15 @@ function nextLeague() {
   $(".js-next").click(function(e) {
     e.preventDefault();
     let nextId = parseInt($(".js-next").attr("data-id")) + 1;
-    $.get("/leagues/" + nextId + ".json", function(data) {
+    let response = $.get("/leagues/" + nextId + ".json")
+    response.done(function(data) {
         $("#leagueName").text(data["name"]);
         $("#leagueDraft").text(data["draft"]);
         $("#leagueScoring").text(data["scoring"]);
+        $("#leagueTeams").text(data["teams"]);
         $(".js-next").attr("data-id", data["id"]);
-    });
+    }).fail(function(data){
+      alert("No more teams.")
+    })
   });
 }

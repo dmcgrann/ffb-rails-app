@@ -5,6 +5,10 @@
     <p id="leagueName"><%=@league.name%></p>
     <p id="leagueDraft"><%=@league.draft%></p>
     <p id="leagueScoring"><%=@league.scoring%></p>
+    <ul id="leagueTeams"><%@league.teams.each do |team|%>
+      <li><%=team.team_name%></li>
+      <%end%>
+    </ul>
   </div>
 
     <br></br>
