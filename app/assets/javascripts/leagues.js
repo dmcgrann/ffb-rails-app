@@ -1,10 +1,20 @@
+function League(name, scoring, draft) {
+  this.name = name;
+  this.scoring = scoring;
+  this.draft = draft;
+}
+
+League.prototype.details = function() {
+  return `${this.scoring}, ${this.draft}`
+}
+
 function getLeagues() {
   $("a.details").click(function(e){
     e.preventDefault();
     let id = $(this).data("id");
     $.get("/leagues/" + id + ".json", function(data){
       let league = data;
-      let leagueDetails = "<p>" + "<strong>Draft Type:</strong>" + "</p>" + "<ul>" + league["draft"] + "</ul>" + "<p>" + "<strong>Scoring Style:</strong>" + "</p>" + "<ul>" + league["scoring"] + "</ul>" + "<p>" + "<strong>Teams:</strong>" + "</p>";
+      let leagueDetails = "<p>" + League.prototype.details.call(league) + "<p>" + "<strong>Teams:</strong>" + "</p>";
       $("#league-" + id).html(leagueDetails);
 
       let teams = league["teams"];
