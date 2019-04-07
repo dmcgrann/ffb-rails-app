@@ -12,7 +12,7 @@
     <div id="playerForm">
 
       <%= form_for ([@user, @team]) do |f| %>
-      <%= user_id_field(@team) %>
+      <% user_id_field(@team) %>
             <h4>QBs</h4>
             <ul>
               <%= f.collection_check_boxes(:player_ids, Player.qb.list, :id, :player_info, {:multiple => true}) do |p| %>
@@ -41,7 +41,7 @@
                 <%end%>
               </ul>
 
-            <%= f.submit "Submit" %>
+            <%= f.submit "Submit", id: "player_submit" %>
 
       <%end%>
 

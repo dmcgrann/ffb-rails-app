@@ -30,14 +30,14 @@ function addPlayers() {
         playerList += '<ul data-id="' + player["id"] + '">' + player["player_name"] + '</ul>';
       });
       $("#x").html(playerList);
+      showHide();
+      closeForm();
     })
   })
 }
 
-function Team(team_name) {
-  this.team_name = team_name
-}
+function closeForm() {
+  document.getElementById("player_submit").disabled = false;
+  
 
-Team.prototype.ids = function() {
-  return `${this.id}`
 }
