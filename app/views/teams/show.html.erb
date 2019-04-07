@@ -5,14 +5,18 @@
     League: <%=@team.league.name%></p>
 
   <div class='darken'>
-    <div id="x"></div>
+    <div id="teamPlayers">
+      <% @team.players.each do |player| %>
+        <p><%= player.player_name%>, <%=player.nfl_team %></p>
+      <%end%><br>
+    </div>
 
     <a id="add" href="#" >Add Players</a>
 
     <div id="playerForm">
 
       <%= form_for ([@user, @team]) do |f| %>
-      <% user_id_field(@team) %>
+      <%=user_id_field(@team) %>
             <h4>QBs</h4>
             <ul>
               <%= f.collection_check_boxes(:player_ids, Player.qb.list, :id, :player_info, {:multiple => true}) do |p| %>

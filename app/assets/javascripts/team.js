@@ -1,3 +1,4 @@
+
 function showHide() {
     $('#playerForm').hide();
 
@@ -8,6 +9,9 @@ function showHide() {
   })
 
 }
+
+
+
 
 function addPlayers() {
   $(".edit_team").submit(function(e){
@@ -21,7 +25,7 @@ function addPlayers() {
       url: url,
       data: values,
       dataType: "json",
-      method: "POST"
+      method: "PUT"
     }).done(function(stuff) {
       let players = stuff["players"];
       let playerList = "";
@@ -29,15 +33,17 @@ function addPlayers() {
 
         playerList += '<ul data-id="' + player["id"] + '">' + player["player_name"] + '</ul>';
       });
-      $("#x").html(playerList);
+      $("#teamPlayers").html('').prepend(playerList);
       showHide();
       closeForm();
     })
+    .fail(function(error){
+      console.log(JSON.stringify(error));
+    })
+    e.stopImmediatePropagation();
   })
 }
 
 function closeForm() {
   document.getElementById("player_submit").disabled = false;
-  
-
 }
