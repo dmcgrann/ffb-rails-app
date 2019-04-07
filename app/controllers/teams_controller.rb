@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   include SessionsHelper
-  skip_before_action :verify_authenticity_token 
+  skip_before_action :verify_authenticity_token
 
   def index
     if params[:user_id]
@@ -35,7 +35,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     respond_to do |format|
       format.html
-      format.json {render json: @team, :layout => false }
+      format.json {render json: @team }
     end
   end
 

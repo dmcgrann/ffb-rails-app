@@ -31,7 +31,7 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
     respond_to do |format|
       format.html
-      format.json {render json: @player, :layout => false }
+      format.json {render json: @player }
     end
   end
 
