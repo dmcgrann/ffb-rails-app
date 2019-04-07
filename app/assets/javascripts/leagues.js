@@ -25,6 +25,7 @@ function getLeagues() {
       });
       $("#league-" + id + "-teams").html(teamList);
     })
+    e.stopImmediatePropagation();
   })
 }
 
