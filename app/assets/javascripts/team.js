@@ -10,9 +10,6 @@ function showHide() {
 
 }
 
-
-
-
 function addPlayers() {
   $(".edit_team").submit(function(e){
     e.preventDefault();
