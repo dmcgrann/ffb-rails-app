@@ -1,12 +1,12 @@
 <div class='container'>
-  <h3>League Homepage</h3>
+  <h1>League Homepage</h1>
 
   <div class='darken'>
-    <h4><%= @league.name %></h4>
+    <h2><%= @league.name %></h2>
     <p>Scoring: <%= @league.scoring %><br>
     Draft: <%= @league.draft %></p>
-    <br></br>
-    <h4>Teams</h4>
+
+    <h3>Teams</h3>
     <% @league.teams.each do |team| %>
 
         <%= link_to team.team_name, user_team_path(team.user_id, team) %><br>
