@@ -1,0 +1,27 @@
+<div class='container'>
+  <h3>Edit Your Team</h3>
+
+  <% if @team.errors.any? %>
+    <div class='field_with_errors'>
+      <p><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</p>
+      <ul>
+      <% @team.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_for @team do |f| %>
+    <%= user_id_field(@team) %>
+    <div class="form-group">
+
+      <p>Team Name:<br>
+      <%= f.text_field :team_name %></p>
+
+      <%= f.submit "Submit" %>
+
+      </div>
+    <%end%>
+
+</div>

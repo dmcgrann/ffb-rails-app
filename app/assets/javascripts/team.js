@@ -31,17 +31,24 @@ function updateTeam() {
       let players = item["players"];
       let qbList = "";
       let rbList = "";
+      let wrList = "";
+      let teList = "";
       players.forEach(function(player) {
         if (player["position"] === "QB") {
         qbList += '<ul data-id="' + player["id"] + '">' + player["player_name"] + '</ul>';
       } else if (player["position"] === "RB"){
         rbList += '<ul data-id="' + player["id"] + '">' + player["player_name"] + '</ul>';
+      } else if (player["position"] === "WR"){
+        wrList += '<ul data-id="' + player["id"] + '">' + player["player_name"] + '</ul>';
+      } else if (player["position"] === "TE"){
+        teList += '<ul data-id="' + player["id"] + '">' + player["player_name"] + '</ul>';
       }
       });
-      $("#teamPlayers").hide();
+      $("#teamPlayers").html('');
       $("#qbPlayers").html('').prepend(qbList);
       $("#rbPlayers").html('').prepend(rbList);
-
+      $("#wrPlayers").html('').prepend(wrList);
+      $("#tePlayers").html('').prepend(teList);
       showHide();
       closeForm();
     })
