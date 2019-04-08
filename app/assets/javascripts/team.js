@@ -29,12 +29,19 @@ function updateTeam() {
 
 
       let players = item["players"];
-      let playerList = "";
+      let qbList = "";
+      let rbList = "";
       players.forEach(function(player) {
-
-        playerList += '<ul data-id="' + player["id"] + '">' + player["player_name"] + '</ul>';
+        if (player["position"] === "QB") {
+        qbList += '<ul data-id="' + player["id"] + '">' + player["player_name"] + '</ul>';
+      } else if (player["position"] === "RB"){
+        rbList += '<ul data-id="' + player["id"] + '">' + player["player_name"] + '</ul>';
+      }
       });
-      $("#teamPlayers").html('').prepend(playerList);
+      $("#teamPlayers").hide();
+      $("#qbPlayers").html('').prepend(qbList);
+      $("#rbPlayers").html('').prepend(rbList);
+
       showHide();
       closeForm();
     })
