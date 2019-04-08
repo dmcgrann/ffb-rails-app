@@ -1,13 +1,9 @@
-
 function showHide() {
     $('#teamForm').hide();
-
     $('#add').click(function(e) {
     $('#teamForm').show();
-
     e.preventDefault();
   })
-
 }
 
 function updateTeam() {
@@ -35,16 +31,15 @@ function updateTeam() {
       let teList = "";
       players.forEach(function(player) {
         if (player["position"] === "QB") {
-        qbList += '<ul data-id="' + player["id"] + '">' + player["player_name"] + '</ul>';
+          qbList += '<ul data-id="' + player["id"] + '">' + player["player_name"] + '</ul>';
       } else if (player["position"] === "RB"){
-        rbList += '<ul data-id="' + player["id"] + '">' + player["player_name"] + '</ul>';
+          rbList += '<ul data-id="' + player["id"] + '">' + player["player_name"] + '</ul>';
       } else if (player["position"] === "WR"){
-        wrList += '<ul data-id="' + player["id"] + '">' + player["player_name"] + '</ul>';
+          wrList += '<ul data-id="' + player["id"] + '">' + player["player_name"] + '</ul>';
       } else if (player["position"] === "TE"){
-        teList += '<ul data-id="' + player["id"] + '">' + player["player_name"] + '</ul>';
+          teList += '<ul data-id="' + player["id"] + '">' + player["player_name"] + '</ul>';
       }
       });
-      $("#teamPlayers").html('');
       $("#qbPlayers").html('').prepend(qbList);
       $("#rbPlayers").html('').prepend(rbList);
       $("#wrPlayers").html('').prepend(wrList);
