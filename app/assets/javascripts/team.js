@@ -23,7 +23,6 @@ function updateTeam() {
       let name = item["team_name"]
       $("#teamName").html('').prepend(name);
 
-
       let players = item["players"];
       let qbList = "";
       let rbList = "";
