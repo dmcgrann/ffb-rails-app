@@ -78,6 +78,12 @@ body {
   padding: 10px;
 }
 
+.darken h3 {
+  color: white;
+  margin: 0;
+  padding: 10px;
+}
+
 .darken h4 {
   color: white;
   margin: 0;

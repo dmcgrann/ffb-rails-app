@@ -6,22 +6,23 @@
 
   <div class='darken'>
     <div id="teamPlayers">
+      <h3>Roster</h3>
       <% @team.players.each do |player| %>
         <p><%= player.player_name%>, <%=player.nfl_team %></p>
       <%end%><br>
     </div>
     <br></br>
     <a id="add" href="#" >Add Players/Change Team Name</a>
-
+    <br></br>
     <div id="playerForm">
 
       <%= form_for ([@user, @team]) do |f| %>
-      <p> User: <%=user_id_field(@team) %></p>
+      <p> <%user_id_field(@team) %></p>
 
-      <h4>Change Team Name:<h4>
-      <p> <%= f.text_field :team_name %></p>
+      <h3>Change Team Name:</h3>
+      <p> <%= f.text_field :team_name %></p><br>
 
-      <h4> Add Players  </h4>
+      <h3> Add Players  </h3>
 
             <h4>QBs</h4>
             <ul>
@@ -52,11 +53,11 @@
               </ul>
 
             <%= f.submit "Submit", id: "player_submit" %>
-
+            <br></br>
       <%end%>
 
     </div>
-    <br></br>
+
 
     <% if current_user.id == @team.user_id || current_user.admin %>
       <%= link_to "Delete Team", @team, method: :delete, data: { confirm: "Really?" } %>
