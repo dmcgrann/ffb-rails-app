@@ -14,7 +14,8 @@
     <br></br>
     <a id="add" href="#" >Add Players/Change Team Name</a>
     <br></br>
-    <div id="playerForm">
+
+    <div id="teamForm">
 
       <%= form_for ([@user, @team]) do |f| %>
       <p> <%user_id_field(@team) %></p>
@@ -52,7 +53,7 @@
                 <%end%>
               </ul>
 
-            <%= f.submit "Submit", id: "player_submit" %>
+            <%= f.submit "Submit", id: "team_submit" %>
             <br></br>
       <%end%>
 

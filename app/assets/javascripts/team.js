@@ -1,9 +1,9 @@
 
 function showHide() {
-    $('#playerForm').hide();
+    $('#teamForm').hide();
 
     $('#add').click(function(e) {
-    $('#playerForm').show();
+    $('#teamForm').show();
 
     e.preventDefault();
   })
@@ -46,5 +46,5 @@ function updateTeam() {
 }
 
 function closeForm() {
-  document.getElementById("player_submit").disabled = false;
+  document.getElementById("team_submit").disabled = false;
 }
