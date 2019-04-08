@@ -10,15 +10,15 @@
         <p><%= player.player_name%>, <%=player.nfl_team %></p>
       <%end%><br>
     </div>
-
-    <a id="add" href="#" >Add Players</a>
+    <br></br>
+    <a id="add" href="#" >Add Players/Change Team Name</a>
 
     <div id="playerForm">
 
       <%= form_for ([@user, @team]) do |f| %>
       <p> User: <%=user_id_field(@team) %></p>
 
-      <h4>Update Team Name:<h4>
+      <h4>Change Team Name:<h4>
       <p> <%= f.text_field :team_name %></p>
 
       <h4> Add Players  </h4>
@@ -59,7 +59,6 @@
     <br></br>
 
     <% if current_user.id == @team.user_id || current_user.admin %>
-      <%= link_to "Edit Team Name", edit_user_team_path(@team.user_id, @team) %><br>
       <%= link_to "Delete Team", @team, method: :delete, data: { confirm: "Really?" } %>
     <% end %>
   </div>

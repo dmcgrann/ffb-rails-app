@@ -10,7 +10,7 @@ function showHide() {
 
 }
 
-function addPlayers() {
+function updateTeam() {
   $(".edit_team").submit(function(e){
     e.preventDefault();
     let values = $(this).serialize();
@@ -23,12 +23,12 @@ function addPlayers() {
       data: values,
       dataType: "json",
       method: "PUT"
-    }).done(function(stuff) {
-      let name = stuff["team_name"]
+    }).done(function(item) {
+      let name = item["team_name"]
       $("#teamName").html('').prepend(name);
 
 
-      let players = stuff["players"];
+      let players = item["players"];
       let playerList = "";
       players.forEach(function(player) {
 

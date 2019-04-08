@@ -29,7 +29,7 @@ function attachListeners() {
   allPlayers();
   nextPlayer();
   showHide();
-  addPlayers();
+  updateTeam();
   getLeagues();
   newLeague();
 }
