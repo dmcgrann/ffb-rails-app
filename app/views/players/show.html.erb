@@ -1,10 +1,10 @@
 <div class='container'>
 
-  <h3 id="playerName"><%=@player.player_name%></h3>
-  <p id="playerPosition"><%=@player.position%></p>
-  <p id="playerNflTeam"><%=@player.nfl_team%></p>
+  <h1 id="playerName"><%=@player.player_name%></h1>
+  <h2 id="playerPosition"><%=@player.position%></h2>
+  <h2 id="playerNflTeam"><%=@player.nfl_team%></h2>
 
-  <a href="#" class="js-next" data-id="<%=@player.id%>">Next...</a>
+  <button class="js-next" data-id="<%=@player.id%>">Next</button>
 
   <% if current_user.admin %>
     <p><%= link_to "Update Player Info", edit_player_path %></p>

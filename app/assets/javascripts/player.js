@@ -98,7 +98,10 @@ function nextPlayer() {
         $("#playerNflTeam").text(data["nfl_team"]);
         $(".js-next").attr("data-id", data["id"]);
     }).fail(function(data) {
+      alert("No more players here!")
         window.history.back();
     })
+    e.stopImmediatePropagation();
+
   });
 }
