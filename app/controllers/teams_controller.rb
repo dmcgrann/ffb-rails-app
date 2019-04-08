@@ -39,16 +39,6 @@ class TeamsController < ApplicationController
     end
   end
 
-  # def edit
-  #   if params[:user_id]
-  #     user = User.find_by(id: params[:user_id])
-  #     @team = user.teams.find_by(id: params[:id])
-  #   else
-  #     flash[:alert] = "Action not permitted."
-  #     redirect_to root_path
-  #   end
-  # end
-
   def update
     @team = Team.find(params[:id])
     if current_user.id == @team.user_id || current_user.admin

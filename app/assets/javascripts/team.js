@@ -24,6 +24,10 @@ function addPlayers() {
       dataType: "json",
       method: "PUT"
     }).done(function(stuff) {
+      let name = stuff["team_name"]
+      $("#teamName").html('').prepend(name);
+
+
       let players = stuff["players"];
       let playerList = "";
       players.forEach(function(player) {

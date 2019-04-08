@@ -1,6 +1,6 @@
 <div class='container'>
 
-  <h2><%= @team.team_name %></h2>
+  <h2 id="teamName"><%= @team.team_name %></h2>
   <p>Owner: <%= @team.user.name %><br>
     League: <%=@team.league.name%></p>
 
@@ -16,7 +16,13 @@
     <div id="playerForm">
 
       <%= form_for ([@user, @team]) do |f| %>
-      <%=user_id_field(@team) %>
+      <p> User: <%=user_id_field(@team) %></p>
+
+      <h4>Update Team Name:<h4>
+      <p> <%= f.text_field :team_name %></p>
+
+      <h4> Add Players  </h4>
+
             <h4>QBs</h4>
             <ul>
               <%= f.collection_check_boxes(:player_ids, Player.qb.list, :id, :player_info, {:multiple => true}) do |p| %>
@@ -48,7 +54,6 @@
             <%= f.submit "Submit", id: "player_submit" %>
 
       <%end%>
-
 
     </div>
     <br></br>
