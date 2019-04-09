@@ -56,3 +56,8 @@ function updateTeam() {
 function closeForm() {
   document.getElementById("team_submit").disabled = false;
 }
+
+function teamListeners() {
+  showHide();
+  updateTeam();
+}

@@ -49,3 +49,8 @@ function clearForm() {
   document.getElementById("new_submit").disabled = false;
   $(':input','#new_league') .not(':button, :submit, :reset, :hidden') .val('')
 }
+
+function leagueListeners() {
+  getLeagues();
+  newLeague();
+}

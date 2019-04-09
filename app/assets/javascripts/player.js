@@ -105,3 +105,12 @@ function nextPlayer() {
 
   });
 }
+
+function playerListeners() {
+  listQBs();
+  listRBs();
+  listWRs();
+  listTEs();
+  allPlayers();
+  nextPlayer();
+}
