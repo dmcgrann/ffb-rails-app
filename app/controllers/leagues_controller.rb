@@ -12,7 +12,12 @@ class LeaguesController < ApplicationController
   def create
     if current_user.admin && logged_in?
       @league = League.create(league_params)
-      render json: @league
+      if @league.valid?
+        render json: @league
+      else
+        flash[:alert] = "Invalid entry. Try again"
+        redirect_to leagues_path
+      end
     else
       flash[:alert] = "No, no, no... only admins can create leagues."
       redirect_to leagues_path
