@@ -22,6 +22,7 @@ function listQBs() {
       })
     $("#players").html('').prepend(quarterBacks);
     })
+    e.stopImmediatePropagation();
   })
 }
 
@@ -38,6 +39,7 @@ function listRBs() {
       })
     $("#players").html('').prepend(runningBacks);
     })
+    e.stopImmediatePropagation();
   })
 }
 
@@ -54,6 +56,7 @@ function listWRs() {
       })
     $("#players").html('').prepend(wideReceivers);
     })
+    e.stopImmediatePropagation();
   })
 }
 
@@ -70,6 +73,7 @@ function listTEs() {
       })
     $("#players").html('').prepend(tightEnds);
     })
+    e.stopImmediatePropagation();
   })
 }
 
@@ -84,6 +88,7 @@ function allPlayers() {
       })
     $("#players").html('').prepend(playerList);
     })
+    e.stopImmediatePropagation();
   })
 }
 
