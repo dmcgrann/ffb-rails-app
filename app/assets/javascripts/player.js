@@ -5,7 +5,7 @@ function Player(player_name, position, nfl_team) {
 }
 
 Player.prototype.entry = function() {
-  return `<a href= "players/${this.id}"> ${this.player_name}, ${this.position}, ${this.nfl_team} </a>`
+  return `<a href= "players/${this.id}"> ${this.player_name}, ${this.position}, ${this.nfl_team} </a>`;
 }
 
 
@@ -17,13 +17,13 @@ function listQBs() {
     let quarterBacks = "";
       list.forEach(function(player){
         if (player["position"] === "QB") {
-          quarterBacks += "<p>" + Player.prototype.entry.call(player) + "</p>"
-        }
-      })
+          quarterBacks += "<p>" + Player.prototype.entry.call(player) + "</p>";
+        };
+      });
     $("#players").html('').prepend(quarterBacks);
-    })
+  });
     e.stopImmediatePropagation();
-  })
+  });
 }
 
 function listRBs() {
@@ -34,13 +34,13 @@ function listRBs() {
     let runningBacks = "";
       list.forEach(function(player){
         if (player["position"] === "RB") {
-          runningBacks += "<p>" + Player.prototype.entry.call(player) + "</p>"
-        }
-      })
+          runningBacks += "<p>" + Player.prototype.entry.call(player) + "</p>";
+        };
+      });
     $("#players").html('').prepend(runningBacks);
-    })
+  });
     e.stopImmediatePropagation();
-  })
+  });
 }
 
 function listWRs() {
@@ -51,13 +51,13 @@ function listWRs() {
     let wideReceivers = "";
       list.forEach(function(player){
         if (player["position"] === "WR") {
-          wideReceivers += "<p>" + Player.prototype.entry.call(player) + "</p>"
-        }
-      })
+          wideReceivers += "<p>" + Player.prototype.entry.call(player) + "</p>";
+        };
+      });
     $("#players").html('').prepend(wideReceivers);
-    })
+  });
     e.stopImmediatePropagation();
-  })
+  });
 }
 
 function listTEs() {
@@ -68,13 +68,13 @@ function listTEs() {
     let tightEnds = "";
       list.forEach(function(player){
         if (player["position"] === "TE") {
-          tightEnds += "<p>" + Player.prototype.entry.call(player) + "</p>"
-        }
-      })
+          tightEnds += "<p>" + Player.prototype.entry.call(player) + "</p>";
+        };
+      });
     $("#players").html('').prepend(tightEnds);
-    })
+  });
     e.stopImmediatePropagation();
-  })
+  });
 }
 
 function allPlayers() {
@@ -84,12 +84,12 @@ function allPlayers() {
     let list = data;
     let playerList = "";
       list.forEach(function(player){
-        playerList += "<p>" + Player.prototype.entry.call(player) + "</p>"
-      })
+        playerList += "<p>" + Player.prototype.entry.call(player) + "</p>";
+      });
     $("#players").html('').prepend(playerList);
-    })
+  });
     e.stopImmediatePropagation();
-  })
+  });
 }
 
 function nextPlayer() {
@@ -105,7 +105,7 @@ function nextPlayer() {
     }).fail(function(data) {
       alert("No more players here!")
         window.history.back();
-    })
+    });
     e.stopImmediatePropagation();
 
   });
