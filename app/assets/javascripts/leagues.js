@@ -5,7 +5,7 @@ function League(name, scoring, draft) {
 }
 
 League.prototype.details = function() {
-  return `<p> Scoring: ${this.scoring} <br> Draft: ${this.draft} </p>`
+  return `<p> Scoring: ${this.scoring} <br> Draft: ${this.draft} </p>`;
 }
 
 function getLeagues() {
@@ -24,14 +24,14 @@ function getLeagues() {
         teamList += '<ul data-id="' + team["id"] + '">' + team["team_name"] + '</ul>';
       });
       $("#league-" + id + "-teams").html(teamList);
-    })
+    });
     e.stopImmediatePropagation();
-  })
+  });
 }
 
 
 function newLeague() {
-  $('form#new_league').submit(function(e) {
+  $('#new_league').submit(function(e) {
       e.preventDefault();
       let values = $(this).serialize();
       let result = $.post('/leagues', values)
