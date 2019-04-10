@@ -15,7 +15,7 @@ class LeaguesController < ApplicationController
       if @league.valid?
         render json: @league
       else
-        flash[:alert] = "Invalid entry. Try again"
+        flash[:alert] = "Invalid entry. Try again."
         redirect_to leagues_path
       end
     else

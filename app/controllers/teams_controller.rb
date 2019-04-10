@@ -38,14 +38,17 @@ class TeamsController < ApplicationController
       format.json {render json: @team }
     end
   end
+  
 
   def update
     @team = Team.find(params[:id])
     if current_user.id == @team.user_id || current_user.admin
       @team.update(team_params)
-
-      render json: @team
-
+      if @team.valid?
+        render json: @team
+      else
+        redirect_to root_path
+      end
     else
       flash[:alert] = "Action not permitted."
       redirect_to root_path
