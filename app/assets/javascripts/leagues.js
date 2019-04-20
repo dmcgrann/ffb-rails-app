@@ -1,14 +1,14 @@
-// class League {
-//   constructor(name, scoring, draft) {
-//     this.name = name;
-//     this.scoring = scoring;
-//     this.draft = draft;
-//   }
-// }
-//
-// League.prototype.details = function() {
-//   return `<p> Scoring: ${this.scoring} <br> Draft: ${this.draft} </p>`;
-// }
+class League {
+  constructor(league) {
+    this.name = league.name;
+    this.scoring = league.scoring;
+    this.draft = league.draft;
+  }
+}
+
+League.prototype.details = function() {
+  return `<p> Scoring: ${this.scoring} <br> Draft: ${this.draft} </p>`;
+}
 
 function getLeagues() {
   $("a.details").click(function(e){
@@ -40,10 +40,14 @@ function newLeague() {
       let result = $.post('/leagues', values)
       result.done(function(response) {
         clearForm();
-        let league = response;
-        $("#leagueName").text(league["name"]);
-        $("#leagueDraft").text(league["draft"]);
-        $("#leagueScoring").text(league["scoring"]);
+
+        console.log(response)
+        const newLeague = new League(response)
+        const leagueDiv = newLeague.details();
+        $("#display").html(leagueDiv)
+        // $("#leagueName").text(league["name"]);
+        // $("#leagueDraft").text(league["draft"]);
+        // $("#leagueScoring").text(league["scoring"]);
       });
     });
   }
