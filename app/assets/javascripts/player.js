@@ -1,11 +1,6 @@
-function Player(player_name, position, nfl_team) {
-  this.player_name = player_name;
-  this.position = position;
-  this.nfl_team = nfl_team;
-}
 
-Player.prototype.entry = function() {
-  return `<a href= "players/${this.id}"> ${this.player_name}, ${this.position}, ${this.nfl_team} </a>`;
+function listPlayers() {
+  return `<a href= "players/${this.id}"> ${this.player_name}, ${this.position}, ${this.nfl_team}</a>`;
 }
 
 
@@ -17,7 +12,7 @@ function listQBs() {
     let quarterBacks = "";
       list.forEach(function(player){
         if (player["position"] === "QB") {
-          quarterBacks += "<p>" + Player.prototype.entry.call(player) + "</p>";
+          quarterBacks += `<p>${listPlayers.call(player)}</p>`;
         };
       });
     $("#players").html('').prepend(quarterBacks);
@@ -34,7 +29,7 @@ function listRBs() {
     let runningBacks = "";
       list.forEach(function(player){
         if (player["position"] === "RB") {
-          runningBacks += "<p>" + Player.prototype.entry.call(player) + "</p>";
+          runningBacks += `<p>${listPlayers.call(player)}</p>`;
         };
       });
     $("#players").html('').prepend(runningBacks);
@@ -51,7 +46,7 @@ function listWRs() {
     let wideReceivers = "";
       list.forEach(function(player){
         if (player["position"] === "WR") {
-          wideReceivers += "<p>" + Player.prototype.entry.call(player) + "</p>";
+          wideReceivers += `<p>${listPlayers.call(player)}</p>`;
         };
       });
     $("#players").html('').prepend(wideReceivers);
@@ -68,7 +63,7 @@ function listTEs() {
     let tightEnds = "";
       list.forEach(function(player){
         if (player["position"] === "TE") {
-          tightEnds += "<p>" + Player.prototype.entry.call(player) + "</p>";
+          tightEnds += `<p>${listPlayers.call(player)}</p>`;
         };
       });
     $("#players").html('').prepend(tightEnds);
@@ -84,7 +79,7 @@ function allPlayers() {
     let list = data;
     let playerList = "";
       list.forEach(function(player){
-        playerList += "<p>" + Player.prototype.entry.call(player) + "</p>";
+        playerList += `<p>${listPlayers.call(player)}</p>`;
       });
     $("#players").html('').prepend(playerList);
   });
