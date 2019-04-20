@@ -3,12 +3,11 @@ class League {
     this.name = name;
     this.scoring = scoring;
     this.draft = draft;
-    this.teams = []
   }
 }
 
 League.prototype.details = function() {
-  return `<p> Scoring: ${this.scoring} <br> Draft: ${this.draft} <br> Teams: ${this.teams}</p> `;
+  return `<p> Scoring: ${this.scoring} <br> Draft: ${this.draft} </p>`;
 }
 
 function getLeagues() {
@@ -16,18 +15,18 @@ function getLeagues() {
     e.preventDefault();
     let id = $(this).data("id");
     $.get("/leagues/" + id + ".json", function(data){
-      let league = new League(data);
+      let league = data;
       // make league object and invoke details
-      let leagueDetails = league.details();
+      let leagueDetails = "<p>" + "Scoring:" + league["scoring"] + "</p>" + "<p>" + "Draft:" + league["draft"] + "</p>" + "<p>" + "<strong>Teams:</strong>" + "</p>";
       $("#league-" + id).html(leagueDetails);
 
-      // let teams = league["teams"];
-      // let teamList = "";
-      // teams.forEach(function(team) {
-      //
-      //   teamList += '<ul data-id="' + team["id"] + '">' + team["team_name"] + '</ul>';
-      // });
-      // $("#league-" + id + "-teams").html(teamList);
+      let teams = league["teams"];
+      let teamList = "";
+      teams.forEach(function(team) {
+
+        teamList += '<ul data-id="' + team["id"] + '">' + team["team_name"] + '</ul>';
+      });
+      $("#league-" + id + "-teams").html(teamList);
     });
     e.stopImmediatePropagation();
   });
