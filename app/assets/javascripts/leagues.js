@@ -6,7 +6,7 @@ class League {
   }
 }
 
-League.prototype.details = function() {
+League.prototype.info = function() {
   return `<p>Name: ${this.name}</p>
   <p>Scoring: ${this.scoring}</p>
   <p>Draft: ${this.draft}</p>`;
@@ -45,7 +45,7 @@ function newLeague() {
       result.done(function(response) {
         clearForm();
         let newLeague = new League(response)
-        let leagueDiv = newLeague.details();
+        let leagueDiv = newLeague.info();
         $("#display").html(leagueDiv)
       });
     });
