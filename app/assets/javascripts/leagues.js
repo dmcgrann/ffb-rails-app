@@ -6,11 +6,11 @@ class League {
     this.teams = league.teams
   }
   teamList(){
-    let y = ""
-    this.teams.forEach(function(a){
-      y += `<ul><li>${a["team_name"]}</li></ul>`
+    let list = ""
+    this.teams.forEach(function(team){
+      list += `<ul><li>${team["team_name"]}</li></ul>`
     })
-    return y
+    return list
   }
 }
 
@@ -37,13 +37,6 @@ function getLeagues() {
       let leagueAttrs = new League(data)
       let leagueDetails = leagueAttrs.details()
       $("#league-" + id).html(leagueDetails);
-
-      // let teams = data["teams"];
-      // let teamList = "";
-      // teams.forEach(function(team) {
-      //   teamList += `<ul data-id= "${team["id"]}"> ${team["team_name"]} </ul>`;
-      // });
-      // $("#league-" + id + "-teams").html(teamList);
     });
     e.stopImmediatePropagation();
   });
