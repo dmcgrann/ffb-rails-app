@@ -12,9 +12,11 @@ function getLeagues() {
   $("a.details").click(function(e){
     e.preventDefault();
     let id = $(this).data("id");
+    debugger
     $.get("/leagues/" + id + ".json", function(data){
       let league = data;
-      let leagueDetails = League.prototype.details.call(league) + "<p>" + "<strong>Teams:</strong>" + "</p>";
+      // make league object and invoke details
+      let leagueDetails = League.prototype.details() + "<p>" + "<strong>Teams:</strong>" + "</p>";
       $("#league-" + id).html(leagueDetails);
 
       let teams = league["teams"];
