@@ -7,7 +7,11 @@ class League {
 }
 
 League.prototype.details = function() {
-  return `<p> Scoring: ${this.scoring} <br> Draft: ${this.draft} </p>`;
+  return `
+  <p>Name: ${this.name}</p>
+  <p>Scoring: ${this.scoring}</p>
+  <p>Draft: ${this.draft}</p>
+  `;
 }
 
 function getLeagues() {
@@ -40,14 +44,9 @@ function newLeague() {
       let result = $.post('/leagues', values)
       result.done(function(response) {
         clearForm();
-
-        console.log(response)
-        const newLeague = new League(response)
-        const leagueDiv = newLeague.details();
+        let newLeague = new League(response)
+        let leagueDiv = newLeague.details();
         $("#display").html(leagueDiv)
-        // $("#leagueName").text(league["name"]);
-        // $("#leagueDraft").text(league["draft"]);
-        // $("#leagueScoring").text(league["scoring"]);
       });
     });
   }
