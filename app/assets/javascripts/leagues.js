@@ -3,6 +3,14 @@ class League {
     this.name = league.name;
     this.scoring = league.scoring;
     this.draft = league.draft;
+    this.teams = league.teams
+  }
+  teamList(){
+    let y = ""
+    this.teams.forEach(function(a){
+      y += `<ul><li>${a["team_name"]}</li></ul>`
+    })
+    return y
   }
 }
 
@@ -12,25 +20,30 @@ League.prototype.info = function() {
   <p>Draft: ${this.draft}</p>`;
 }
 
+League.prototype.details = function() {
+  return `
+  <p>Scoring: ${this.scoring}</p>
+  <p>Draft: ${this.draft}</p>
+  <p><strong>Teams</strong></p>
+  ${this.teamList()}
+  `;
+}
+
 function getLeagues() {
   $("a.details").click(function(e){
     e.preventDefault();
     let id = $(this).data("id");
     $.get("/leagues/" + id + ".json", function(data){
-      let league = data;
-      // make league object and invoke details
-      let leagueDetails =
-      `<p>Scoring: ${league["scoring"]}</p>
-      <p>Draft: ${league["draft"]}</p>
-      <p><strong>Teams:</strong></p>`;
+      let leagueAttrs = new League(data)
+      let leagueDetails = leagueAttrs.details()
       $("#league-" + id).html(leagueDetails);
 
-      let teams = league["teams"];
-      let teamList = "";
-      teams.forEach(function(team) {
-        teamList += `<ul data-id= "${team["id"]}"> ${team["team_name"]} </ul>`;
-      });
-      $("#league-" + id + "-teams").html(teamList);
+      // let teams = data["teams"];
+      // let teamList = "";
+      // teams.forEach(function(team) {
+      //   teamList += `<ul data-id= "${team["id"]}"> ${team["team_name"]} </ul>`;
+      // });
+      // $("#league-" + id + "-teams").html(teamList);
     });
     e.stopImmediatePropagation();
   });
