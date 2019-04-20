@@ -1,14 +1,14 @@
-class League {
-  constructor(name, scoring, draft) {
-    this.name = name;
-    this.scoring = scoring;
-    this.draft = draft;
-  }
-}
-
-League.prototype.details = function() {
-  return `<p> Scoring: ${this.scoring} <br> Draft: ${this.draft} </p>`;
-}
+// class League {
+//   constructor(name, scoring, draft) {
+//     this.name = name;
+//     this.scoring = scoring;
+//     this.draft = draft;
+//   }
+// }
+//
+// League.prototype.details = function() {
+//   return `<p> Scoring: ${this.scoring} <br> Draft: ${this.draft} </p>`;
+// }
 
 function getLeagues() {
   $("a.details").click(function(e){
