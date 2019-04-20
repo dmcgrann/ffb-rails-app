@@ -7,11 +7,9 @@ class League {
 }
 
 League.prototype.details = function() {
-  return `
-  <p>Name: ${this.name}</p>
+  return `<p>Name: ${this.name}</p>
   <p>Scoring: ${this.scoring}</p>
-  <p>Draft: ${this.draft}</p>
-  `;
+  <p>Draft: ${this.draft}</p>`;
 }
 
 function getLeagues() {
@@ -21,14 +19,16 @@ function getLeagues() {
     $.get("/leagues/" + id + ".json", function(data){
       let league = data;
       // make league object and invoke details
-      let leagueDetails = "<p>" + "Scoring:" + league["scoring"] + "</p>" + "<p>" + "Draft:" + league["draft"] + "</p>" + "<p>" + "<strong>Teams:</strong>" + "</p>";
+      let leagueDetails =
+      `<p>Scoring: ${league["scoring"]}</p>
+      <p>Draft: ${league["draft"]}</p>
+      <p><strong>Teams:</strong></p>`;
       $("#league-" + id).html(leagueDetails);
 
       let teams = league["teams"];
       let teamList = "";
       teams.forEach(function(team) {
-
-        teamList += '<ul data-id="' + team["id"] + '">' + team["team_name"] + '</ul>';
+        teamList += `<ul data-id= "${team["id"]}"> ${team["team_name"]} </ul>`;
       });
       $("#league-" + id + "-teams").html(teamList);
     });
