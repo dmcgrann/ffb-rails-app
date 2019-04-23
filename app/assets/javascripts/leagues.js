@@ -12,22 +12,36 @@ class League {
     })
     return list
   }
+
+  info() {
+    return `<p>Name: ${this.name}</p>
+    <p>Scoring: ${this.scoring}</p>
+    <p>Draft: ${this.draft}</p>`;
+  }
+
+  details(){
+    return `<p>Scoring: ${this.scoring}</p>
+    <p>Draft: ${this.draft}</p>
+    <p><strong>Teams</strong></p>
+    ${this.teamList()}`;
+  }
+  
 }
 
-League.prototype.info = function() {
-  return `<p>Name: ${this.name}</p>
-  <p>Scoring: ${this.scoring}</p>
-  <p>Draft: ${this.draft}</p>`;
-}
-
-League.prototype.details = function() {
-  return `
-  <p>Scoring: ${this.scoring}</p>
-  <p>Draft: ${this.draft}</p>
-  <p><strong>Teams</strong></p>
-  ${this.teamList()}
-  `;
-}
+// League.prototype.info = function() {
+//   return `<p>Name: ${this.name}</p>
+//   <p>Scoring: ${this.scoring}</p>
+//   <p>Draft: ${this.draft}</p>`;
+// }
+//
+// League.prototype.details = function() {
+//   return `
+//   <p>Scoring: ${this.scoring}</p>
+//   <p>Draft: ${this.draft}</p>
+//   <p><strong>Teams</strong></p>
+//   ${this.teamList()}
+//   `;
+// }
 
 function getLeagues() {
   $("a.details").click(function(e){
