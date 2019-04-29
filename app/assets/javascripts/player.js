@@ -95,7 +95,7 @@ function allPlayers() {
 
       // Examine the text in the response
       response.json().then(function(data) {
-        console.log(data);
+        // console.log(data);
         let list = data;
         let playerList = "";
           list.forEach(function(player){
@@ -103,9 +103,9 @@ function allPlayers() {
           });
         $("#players").html('').prepend(playerList);
         });
-      e.stopImmediatePropagation();
     }
   )
+  e.stopImmediatePropagation();
   });
 }
 
