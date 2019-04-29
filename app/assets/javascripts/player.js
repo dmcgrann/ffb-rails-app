@@ -75,15 +75,37 @@ function listTEs() {
 function allPlayers() {
   $("a.all").click(function(e){
     e.preventDefault();
-    $.get("/players" + ".json", function(data){
-    let list = data;
-    let playerList = "";
-      list.forEach(function(player){
-        playerList += `<p>${listPlayers.call(player)}</p>`;
-      });
-    $("#players").html('').prepend(playerList);
-  });
-    e.stopImmediatePropagation();
+  //   $.get("/players" + ".json", function(data){
+  //   let list = data;
+  //   let playerList = "";
+  //     list.forEach(function(player){
+  //       playerList += `<p>${listPlayers.call(player)}</p>`;
+  //     });
+  //   $("#players").html('').prepend(playerList);
+  // });
+  //   e.stopImmediatePropagation();
+  fetch('/players.json')
+  .then(
+    function(response) {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' +
+          response.status);
+        return;
+      }
+
+      // Examine the text in the response
+      response.json().then(function(data) {
+        console.log(data);
+        let list = data;
+        let playerList = "";
+          list.forEach(function(player){
+            playerList += `<p>${listPlayers.call(player)}</p>`;
+          });
+        $("#players").html('').prepend(playerList);
+        });
+      e.stopImmediatePropagation();
+    }
+  )
   });
 }
 
