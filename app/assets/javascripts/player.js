@@ -1,6 +1,15 @@
+class Player {
+  constructor(p) {
+    this.id = p.id
+    this.player_name = p.player_name;
+    this.position = p.position;
+    this.nfl_team = p.nfl_team;
+  }
+}
 
-function listPlayers() {
-  return `<a href= "players/${this.id}"> ${this.player_name}, ${this.position}, ${this.nfl_team}</a>`;
+
+Player.prototype.listPlayers = function() {
+  return `<p><a href= "players/${this.id}"> ${this.player_name}, ${this.position}, ${this.nfl_team}</a></p>`;
 }
 
 
@@ -8,14 +17,16 @@ function listQBs() {
   $("a.qbs").click(function(e){
     e.preventDefault();
     $.get("/players" + ".json", function(data){
-    let list = data;
-    let quarterBacks = "";
-      list.forEach(function(player){
-        if (player["position"] === "QB") {
-          quarterBacks += `<p>${listPlayers.call(player)}</p>`;
+      list = []
+      data.forEach(function(qb){
+        let playerAttrs = new Player(qb);
+        let playerDetails = playerAttrs.listPlayers();
+        if (qb["position"] === "QB") {
+          list.push(playerDetails)
         };
+
       });
-    $("#players").html('').prepend(quarterBacks);
+    $("#players").html('').prepend(list);
   });
     e.stopImmediatePropagation();
   });
@@ -25,14 +36,16 @@ function listRBs() {
   $("a.rbs").click(function(e){
     e.preventDefault();
     $.get("/players" + ".json", function(data){
-    let list = data;
-    let runningBacks = "";
-      list.forEach(function(player){
-        if (player["position"] === "RB") {
-          runningBacks += `<p>${listPlayers.call(player)}</p>`;
+      list = []
+      data.forEach(function(rb){
+        let playerAttrs = new Player(rb);
+        let playerDetails = playerAttrs.listPlayers();
+        if (rb["position"] === "RB") {
+          list.push(playerDetails)
         };
+
       });
-    $("#players").html('').prepend(runningBacks);
+    $("#players").html('').prepend(list);
   });
     e.stopImmediatePropagation();
   });
@@ -42,14 +55,16 @@ function listWRs() {
   $("a.wrs").click(function(e){
     e.preventDefault();
     $.get("/players" + ".json", function(data){
-    let list = data;
-    let wideReceivers = "";
-      list.forEach(function(player){
-        if (player["position"] === "WR") {
-          wideReceivers += `<p>${listPlayers.call(player)}</p>`;
+      list = []
+      data.forEach(function(wr){
+        let playerAttrs = new Player(wr);
+        let playerDetails = playerAttrs.listPlayers();
+        if (wr["position"] === "WR") {
+          list.push(playerDetails)
         };
+
       });
-    $("#players").html('').prepend(wideReceivers);
+    $("#players").html('').prepend(list);
   });
     e.stopImmediatePropagation();
   });
@@ -59,14 +74,16 @@ function listTEs() {
   $("a.tes").click(function(e){
     e.preventDefault();
     $.get("/players" + ".json", function(data){
-    let list = data;
-    let tightEnds = "";
-      list.forEach(function(player){
-        if (player["position"] === "TE") {
-          tightEnds += `<p>${listPlayers.call(player)}</p>`;
+      list = []
+      data.forEach(function(te){
+        let playerAttrs = new Player(te);
+        let playerDetails = playerAttrs.listPlayers();
+        if (te["position"] === "TE") {
+          list.push(playerDetails)
         };
+
       });
-    $("#players").html('').prepend(tightEnds);
+    $("#players").html('').prepend(list);
   });
     e.stopImmediatePropagation();
   });
@@ -88,12 +105,14 @@ function listByTeam() {
         return 0;
     });
 
-      let playerList = "";
-        data.forEach(function(player){
-          playerList += `<p>${listPlayers.call(player)}</p>`;
-        });
-      $("#players").html('').prepend(playerList);
-  });
+    list = []
+    data.forEach(function(sorted){
+      let playerAttrs = new Player(sorted);
+      let playerDetails = playerAttrs.listPlayers();
+        list.push(playerDetails)
+      });
+      $("#players").html('').prepend(list);
+    });
     e.stopImmediatePropagation();
   });
 }
@@ -101,36 +120,18 @@ function listByTeam() {
 function allPlayers() {
   $("a.all").click(function(e){
     e.preventDefault();
-  //   $.get("/players" + ".json", function(data){
-  //   let list = data;
-  //   let playerList = "";
-  //     list.forEach(function(player){
-  //       playerList += `<p>${listPlayers.call(player)}</p>`;
-  //     });
-  //   $("#players").html('').prepend(playerList);
-  // });
-  //   e.stopImmediatePropagation();
-  fetch('/players.json')
-  .then(
-    function(response) {
-      if (response.status !== 200) {
-        console.log('Looks like there was a problem. Status Code: ' +
-          response.status);
-        return;
-      }
+    $.get("/players" + ".json", function(data){
+      list = []
+      data.forEach(function(all){
+        let playerAttrs = new Player(all);
+        let playerDetails = playerAttrs.listPlayers();
 
-      // Examine the text in the response
-      response.json().then(function(data) {
-        // console.log(data);
-        let list = data;
-        let playerList = "";
-          list.forEach(function(player){
-            playerList += `<p>${listPlayers.call(player)}</p>`;
-          });
-        $("#players").html('').prepend(playerList);
-        });
-    }
-  )
+          list.push(playerDetails)
+
+
+      });
+    $("#players").html('').prepend(list);
+  });
   e.stopImmediatePropagation();
   });
 }
