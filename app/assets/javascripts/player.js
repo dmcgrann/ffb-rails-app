@@ -19,8 +19,8 @@ function listQBs() {
     $.get("/players" + ".json", function(data){
       list = []
       data.forEach(function(qb){
-        let playerAttrs = new Player(qb);
-        let playerDetails = playerAttrs.listPlayers();
+        const playerAttrs = new Player(qb);
+        const playerDetails = playerAttrs.listPlayers();
         if (qb["position"] === "QB") {
           list.push(playerDetails)
         };
@@ -38,8 +38,8 @@ function listRBs() {
     $.get("/players" + ".json", function(data){
       list = []
       data.forEach(function(rb){
-        let playerAttrs = new Player(rb);
-        let playerDetails = playerAttrs.listPlayers();
+        const playerAttrs = new Player(rb);
+        const playerDetails = playerAttrs.listPlayers();
         if (rb["position"] === "RB") {
           list.push(playerDetails)
         };
@@ -57,8 +57,8 @@ function listWRs() {
     $.get("/players" + ".json", function(data){
       list = []
       data.forEach(function(wr){
-        let playerAttrs = new Player(wr);
-        let playerDetails = playerAttrs.listPlayers();
+        const playerAttrs = new Player(wr);
+        const playerDetails = playerAttrs.listPlayers();
         if (wr["position"] === "WR") {
           list.push(playerDetails)
         };
@@ -76,8 +76,8 @@ function listTEs() {
     $.get("/players" + ".json", function(data){
       list = []
       data.forEach(function(te){
-        let playerAttrs = new Player(te);
-        let playerDetails = playerAttrs.listPlayers();
+        const playerAttrs = new Player(te);
+        const playerDetails = playerAttrs.listPlayers();
         if (te["position"] === "TE") {
           list.push(playerDetails)
         };
@@ -107,8 +107,8 @@ function listByTeam() {
 
     list = []
     data.forEach(function(sorted){
-      let playerAttrs = new Player(sorted);
-      let playerDetails = playerAttrs.listPlayers();
+      const playerAttrs = new Player(sorted);
+      const playerDetails = playerAttrs.listPlayers();
         list.push(playerDetails)
       });
       $("#players").html('').prepend(list);
@@ -123,12 +123,9 @@ function allPlayers() {
     $.get("/players" + ".json", function(data){
       list = []
       data.forEach(function(all){
-        let playerAttrs = new Player(all);
-        let playerDetails = playerAttrs.listPlayers();
-
+        const playerAttrs = new Player(all);
+        const playerDetails = playerAttrs.listPlayers();
           list.push(playerDetails)
-
-
       });
     $("#players").html('').prepend(list);
   });
@@ -139,8 +136,8 @@ function allPlayers() {
 function nextPlayer() {
   $(".js-next").click(function(e) {
     e.preventDefault();
-    let nextId = parseInt($(".js-next").attr("data-id")) + 1;
-    let response = $.get("/players/" + nextId + ".json")
+    const nextId = parseInt($(".js-next").attr("data-id")) + 1;
+    const response = $.get("/players/" + nextId + ".json")
     response.done(function(data) {
         $("#playerName").text(data["player_name"]);
         $("#playerPosition").text(data["position"]);
