@@ -33,10 +33,10 @@ League.prototype.details = function() {
 function getLeagues() {
   $("a.details").click(function(e){
     e.preventDefault();
-    let id = $(this).data("id");
+    const id = $(this).data("id");
     $.get("/leagues/" + id + ".json", function(data){
-      let leagueAttrs = new League(data)
-      let leagueDetails = leagueAttrs.details()
+      const leagueAttrs = new League(data)
+      const leagueDetails = leagueAttrs.details()
       $("#league-" + id).html(leagueDetails);
     });
     e.stopImmediatePropagation();
@@ -47,12 +47,12 @@ function getLeagues() {
 function newLeague() {
   $('#new_league').submit(function(e) {
       e.preventDefault();
-      let values = $(this).serialize();
-      let result = $.post('/leagues', values)
+      const values = $(this).serialize();
+      const result = $.post('/leagues', values)
       result.done(function(response) {
         clearForm();
-        let newLeague = new League(response)
-        let leagueDiv = newLeague.info();
+        const newLeague = new League(response)
+        const leagueDiv = newLeague.info();
         $("#display").html(leagueDiv)
       });
     });
