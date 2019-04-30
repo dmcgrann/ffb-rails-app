@@ -9,10 +9,10 @@ function showHide() {
 function updateTeam() {
   $(".edit_team").submit(function(e){
     e.preventDefault();
-    let values = $(this).serialize();
-    let id = $(this).attr("action");
-    let user = $("input[name='team[user_id]']").attr("value");
-    let url = "/users/" + user + id;
+    const values = $(this).serialize();
+    const id = $(this).attr("action");
+    const user = $("input[name='team[user_id]']").attr("value");
+    const url = "/users/" + user + id;
 
     $.ajax({
       url: url,
@@ -20,10 +20,10 @@ function updateTeam() {
       dataType: "json",
       method: "PUT"
     }).done(function(item) {
-      let name = item["team_name"]
+      const name = item["team_name"]
       $("#teamName").html('').prepend(name);
 
-      let players = item["players"];
+      const players = item["players"];
       let qbList = "";
       let rbList = "";
       let wrList = "";
