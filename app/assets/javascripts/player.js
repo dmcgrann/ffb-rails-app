@@ -72,6 +72,32 @@ function listTEs() {
   });
 }
 
+function listByTeam() {
+  $("a.teams").click(function(e){
+    e.preventDefault();
+    $.get("/players" + ".json", function(data){
+      data.sort(function(a, b) {
+        const nameA = a.nfl_team.toUpperCase(); // ignore upper and lowercase
+        const nameB = b.nfl_team.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
+    });
+
+      let playerList = "";
+        data.forEach(function(player){
+          playerList += `<p>${listPlayers.call(player)}</p>`;
+        });
+      $("#players").html('').prepend(playerList);
+  });
+    e.stopImmediatePropagation();
+  });
+}
+
 function allPlayers() {
   $("a.all").click(function(e){
     e.preventDefault();
@@ -135,4 +161,5 @@ function playerListeners() {
   listTEs();
   allPlayers();
   nextPlayer();
+  listByTeam();
 }
